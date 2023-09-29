@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">HadesApp</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="armas_infernales">Armas Infernales</string>
+    <string name="personajes">Personajes</string>
+    <string name="bendiciones">Bendiciones</string>
+    <string name="inicio">Inicio</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
