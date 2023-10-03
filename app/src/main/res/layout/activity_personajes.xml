@@ -9,37 +9,55 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/rojo_hades">
 
-        <ImageView
-            android:id="@+id/imgTopPersonajes"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:src="@drawable/img_eliseo_bg2"
-            android:scaleType="centerCrop"
-            app:layout_constraintBaseline_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="vertical"
+            android:background="#61434343"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/imgTopPersonajes">
+            app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/txtTest"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
-                android:fontFamily="@font/rosario"
-                android:text="@string/personajes"
-                android:textColor="@color/white"
-                android:textSize="32sp" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="1in"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:background="@drawable/img_marco1080">
+
+
+                <ImageButton
+                    android:id="@+id/imgBtnVolver"
+                    android:layout_width="@dimen/common_back_max"
+                    android:layout_height="@dimen/common_back_max"
+                    android:background="@android:color/transparent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_volver_ic"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txtTest"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/rosario"
+                    android:text="Personajes"
+                    android:textColor="@color/white"
+                    android:textSize="32sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvPersonajes"

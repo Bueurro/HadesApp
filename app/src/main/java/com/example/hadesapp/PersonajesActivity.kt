@@ -1,5 +1,6 @@
 package com.example.hadesapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -26,6 +27,11 @@ class PersonajesActivity : AppCompatActivity() {
         binding.rvPersonajes.apply {
             layoutManager = linearLayoutManager
             adapter = personajeAdapter
+        }
+
+        binding.imgBtnVolver.setOnClickListener{
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
         }
 
     }

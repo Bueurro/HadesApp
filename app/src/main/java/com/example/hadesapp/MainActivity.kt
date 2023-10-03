@@ -25,21 +25,16 @@ class MainActivity : AppCompatActivity() {
 
         bottomNavigationView.setOnItemSelectedListener{ menuItem ->
             when(menuItem.itemId){
+                R.id.topAjustes -> {
+                    //replaceFragment()
+                    true
+                }
                 R.id.topHome -> {
                     replaceFragment(MainFragment())
                     true
                 }
-                R.id.topPersonajes -> {
-                    //TODO: CAMBIAR LOS FRAGMENTS AQUI
-                    //replaceFragment()
-                    true
-                }
-                R.id.topArmasInfernales -> {
+                R.id.topPerfil -> {
                     //replaceFragment(ArmasInfernalesFragment())
-                    true
-                }
-                R.id.topBonds -> {
-                    //replaceFragment(BendicionesFragment())
                     true
                 }
                 else -> false

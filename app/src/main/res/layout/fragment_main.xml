@@ -19,22 +19,34 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="#59000000"
-        android:gravity="center">
+        android:background="#95000000"
+        android:gravity="top">
 
-        <TextView
+        <ImageView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Inicio"
-            android:gravity="center"
-            android:textSize="50dp"
+            android:layout_height="@dimen/common_IB_min"
+            android:src="@drawable/img_hadeswiki_logo"
+            android:layout_marginTop="@dimen/common_margin_min"
+            android:layout_marginBottom="@dimen/common_margin_default"
             />
-    </LinearLayout>
 
-    <Button
-        android:id="@+id/btnTemp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="aaaa"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+
+            <ImageButton
+                android:id="@+id/btnTemp"
+                android:layout_width="@dimen/common_IB_default"
+                android:layout_height="@dimen/common_IB_default"
+                android:src="@drawable/img_personajes_bbtn"
+                android:background="@android:color/transparent"
+                android:scaleType="centerCrop"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </FrameLayout>
