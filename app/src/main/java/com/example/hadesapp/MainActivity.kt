@@ -30,15 +30,16 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.topPersonajes -> {
-                    replaceFragment(PersonajesFragment())
+                    //TODO: CAMBIAR LOS FRAGMENTS AQUI
+                    //replaceFragment()
                     true
                 }
                 R.id.topArmasInfernales -> {
-                    replaceFragment(ArmasInfernalesFragment())
+                    //replaceFragment(ArmasInfernalesFragment())
                     true
                 }
                 R.id.topBonds -> {
-                    replaceFragment(BendicionesFragment())
+                    //replaceFragment(BendicionesFragment())
                     true
                 }
                 else -> false
@@ -55,7 +56,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     //states: SE EJECUTAN CUANDO
-
     //INICIA LA APP
     override fun onStart() {
         super.onStart()
@@ -63,14 +63,14 @@ class MainActivity : AppCompatActivity() {
         mediaPlayer?.start()
     }
 
-    //VUELVE A LA APP
+    //SE VUELVE A LA APP
     override fun onResume() {
         super.onResume()
         mediaPlayer?.seekTo(position)
         mediaPlayer?.start()
     }
 
-    //TENEMOS LA APP MINIMIZADA
+    //LA APP ESTÁ MINIMIZADA
     override fun onPause() {
         super.onPause()
         mediaPlayer?.pause()

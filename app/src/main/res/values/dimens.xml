@@ -1,3 +1,35 @@
 <resources>
-    <dimen name="text_margin">16dp</dimen>
+
+    // margenes
+    <dimen name="common_margin_min">8dp</dimen>
+    <dimen name="common_margin_default">16dp</dimen>
+    <dimen name="common_margin_middle">24dp</dimen>
+    <dimen name="common_margin_max">32dp</dimen>
+
+    // paddings
+    <dimen name="common_padding_min">8dp</dimen>
+    <dimen name="common_padding_default">16dp</dimen>
+    <dimen name="common_padding_middle">24dp</dimen>
+    <dimen name="common_padding_max">32dp</dimen>
+
+    // textos
+    <dimen name="common_text_min">8sp</dimen>
+    <dimen name="common_text_default">16sp</dimen>
+    <dimen name="common_text_middle">24sp</dimen>
+    <dimen name="common_text_max">32sp</dimen>
+
+    // anchos
+    <dimen name="common_widht_min">32dp</dimen>
+    <dimen name="common_widht_default">48dp</dimen>
+    <dimen name="common_widht_middle">64dp</dimen>
+    <dimen name="common_widht_max">128dp</dimen>
+
+    // alturas
+    <dimen name="common_height_min">32dp</dimen>
+    <dimen name="common_height_default">48dp</dimen>
+    <dimen name="common_height_middle">64dp</dimen>
+    <dimen name="common_height_max">128dp</dimen>
+
+    <dimen name="common_card_height_max">152dp</dimen>
+
 </resources>
