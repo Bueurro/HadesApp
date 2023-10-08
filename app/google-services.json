@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "940145425351",
+    "project_id": "hadesapp",
+    "storage_bucket": "hadesapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:940145425351:android:9aa1b49becf4c31891f7e2",
+        "android_client_info": {
+          "package_name": "com.example.hadesapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhwC53vmmFKwz-2LNiCadC-p6ffdC6fG8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

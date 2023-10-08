@@ -1,106 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="@dimen/common_padding_min">
+    android:layout_marginStart="@dimen/common_margin_min"
+    android:layout_marginEnd="@dimen/common_margin_min"
+    android:layout_marginTop="@dimen/common_margin_min"
+    app:cardBackgroundColor="@android:color/transparent"
 
-    <ImageButton
-        android:id="@+id/imgBtnCarta"
+    android:outlineSpotShadowColor="@android:color/transparent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
-        android:layout_height="@dimen/common_card_height_max"
-        android:background="@android:color/transparent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/img_carta_bendicion_blank"
+        android:layout_height="wrap_content">
 
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/common_margin_default"
-        android:layout_marginBottom="@dimen/common_margin_min"
-        android:textSize="@dimen/common_text_default"
-        android:textColor="@color/oro"
-        android:textStyle="italic|bold"
-        android:text="Nombre:"
 
-        app:layout_constraintBottom_toTopOf="@+id/txtNombrePj"
-        app:layout_constraintStart_toEndOf="@+id/imgBtnPersonaje" />
+        <ImageView
+            android:id="@+id/imgBtnCarta"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/common_card_height_max"
+            android:background="@android:color/transparent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_carta_bendicion_blank"
 
-    <TextView
-        android:id="@+id/txtNombrePj"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hades"
-        android:textColor="@color/white"
-        android:textSize="@dimen/common_text_middle"
-        android:textStyle="italic"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        android:layout_marginStart="@dimen/common_margin_middle"
-        android:layout_marginBottom="@dimen/common_margin_min"
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="188dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="168dp"
+            android:layout_marginBottom="106dp"
+            android:text="Nombre:"
+            android:textColor="@color/oro"
+            android:textSize="@dimen/common_text_default"
+            android:textStyle="italic|bold"
+            app:layout_constraintBottom_toBottomOf="@+id/imgBtnCarta"
+            app:layout_constraintEnd_toEndOf="@+id/imgBtnCarta"
+            app:layout_constraintStart_toStartOf="@+id/imgBtnCarta"
+            app:layout_constraintTop_toTopOf="@+id/imgBtnCarta" />
 
-        app:layout_constraintBottom_toTopOf="@+id/txtTextoCat"
-        app:layout_constraintStart_toEndOf="@+id/imgBtnPersonaje" />
+        <TextView
+            android:id="@+id/txtNombrePj"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hades"
+            android:textColor="@color/white"
 
-    <TextView
-        android:id="@+id/txtTextoCat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/common_margin_default"
-        android:layout_marginBottom="@dimen/common_margin_min"
-        android:text="Categoría:"
-        android:textColor="@color/oro"
-        android:textSize="@dimen/common_text_default"
+            android:textSize="@dimen/common_text_middle"
+            android:textStyle="italic"
 
-        android:textStyle="italic|bold"
-        app:layout_constraintBottom_toTopOf="@+id/txtCategoria"
-        app:layout_constraintStart_toEndOf="@+id/imgBtnPersonaje" />
+            app:layout_constraintEnd_toEndOf="@+id/textView"
+            app:layout_constraintStart_toEndOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-    <TextView
-        android:id="@+id/txtCategoria"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:textStyle="italic"
-        android:textSize="@dimen/common_text_middle"
-        android:text="Dios Ctónico"
+        <TextView
+            android:id="@+id/txtTextoCat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Categoría:"
+            android:textColor="@color/oro"
 
-        android:layout_marginStart="@dimen/common_margin_middle"
+            android:textSize="@dimen/common_text_default"
 
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imgBtnPersonaje"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.885" />
+            android:textStyle="italic|bold"
+            app:layout_constraintBottom_toBottomOf="@+id/imgBtnCarta"
+            app:layout_constraintEnd_toEndOf="@+id/imgBtnCarta"
+            app:layout_constraintHorizontal_bias="0.546"
+            app:layout_constraintStart_toStartOf="@+id/imgBtnCarta"
+            app:layout_constraintTop_toTopOf="@+id/imgBtnCarta"
+            app:layout_constraintVertical_bias="0.653" />
 
-    <ImageButton
-        android:id="@+id/imgBtnPersonaje"
-        android:layout_width="@dimen/common_widht_max"
-        android:layout_height="@dimen/common_widht_max"
-        android:layout_marginStart="@dimen/common_margin_middle"
-        android:background="@android:color/transparent"
-        android:maxWidth="@dimen/common_widht_max"
-        android:maxHeight="@dimen/common_height_max"
-        android:scaleType="fitCenter"
-        android:src="@drawable/hadestest"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/imgBtnCarta"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/txtCategoria"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dios Ctónico"
+            android:textColor="@color/white"
+            android:textSize="@dimen/common_text_default"
 
-    <ImageButton
-        android:id="@+id/imgBtnBasurero"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:background="@android:color/transparent"
-        android:scaleType="centerInside"
-        android:src="@drawable/img_pngbasurero"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginEnd="@dimen/common_margin_min"
-        android:layout_marginBottom="@dimen/common_margin_min"/>
+            android:textStyle="italic"
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/txtTextoCat"
+            app:layout_constraintHorizontal_bias="0.528"
+            app:layout_constraintStart_toEndOf="@+id/txtTextoCat"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.863" />
+
+        <ImageView
+            android:id="@+id/imgBtnPersonaje"
+            android:layout_width="@dimen/common_widht_max"
+            android:layout_height="@dimen/common_widht_max"
+            android:layout_marginStart="@dimen/common_margin_default"
+            android:background="@android:color/transparent"
+            android:maxWidth="@dimen/common_widht_max"
+            android:maxHeight="@dimen/common_height_max"
+            android:scaleType="fitCenter"
+            android:src="@drawable/hadestest"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/imgBtnCarta"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imgBtnBasurero"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="@dimen/common_margin_min"
+            android:layout_marginTop="@dimen/common_margin_min"
+            android:background="@android:color/transparent"
+            android:scaleType="centerInside"
+            android:src="@drawable/img_pngbasurero"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imgBtnCarta" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

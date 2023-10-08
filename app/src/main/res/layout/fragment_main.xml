@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -36,14 +37,75 @@
             android:orientation="vertical"
             android:gravity="center">
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <ImageButton
-                android:id="@+id/btnTemp"
-                android:layout_width="@dimen/common_IB_default"
-                android:layout_height="@dimen/common_IB_default"
-                android:src="@drawable/img_personajes_bbtn"
-                android:background="@android:color/transparent"
-                android:scaleType="centerCrop"/>
+                <ImageView
+                    android:id="@+id/imageView1"
+                    android:layout_width="@dimen/common_IB_default"
+                    android:layout_height="@dimen/common_IB_default"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_personajes_bbtn"
+
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/btnPersonajes"
+                    android:layout_width="@dimen/common_IB_inter"
+                    android:layout_height="@dimen/common_IB_inter"
+                    android:background="@android:color/transparent"
+
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView1"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView1"
+                    app:layout_constraintStart_toStartOf="@+id/imageView1"
+                    app:layout_constraintTop_toTopOf="@+id/imageView1" />
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="@dimen/common_IB_default"
+                    android:layout_height="@dimen/common_IB_default"
+                    android:src="@drawable/img_bendiciones_bbtn"
+
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnPersonajes" />
+
+                <Button
+                    android:id="@+id/btnBendiciones"
+                    android:layout_width="@dimen/common_IB_inter"
+                    android:layout_height="@dimen/common_IB_inter"
+                    android:background="@android:color/transparent"
+
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                    app:layout_constraintStart_toStartOf="@+id/imageView2"
+                    app:layout_constraintTop_toTopOf="@+id/imageView2" />
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="@dimen/common_IB_default"
+                    android:layout_height="@dimen/common_IB_default"
+                    android:src="@drawable/img_armas_bbtn"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnBendiciones" />
+
+                <Button
+                    android:id="@+id/btnArmas"
+                    android:layout_width="@dimen/common_IB_inter"
+                    android:layout_height="@dimen/common_IB_inter"
+                    android:background="@android:color/transparent"
+
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView3"
+                    app:layout_constraintStart_toStartOf="@+id/imageView3"
+                    app:layout_constraintTop_toTopOf="@+id/imageView3" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
 

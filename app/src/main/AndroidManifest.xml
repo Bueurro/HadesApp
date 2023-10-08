@@ -15,6 +15,12 @@
         android:theme="@style/Theme.HadesApp"
         tools:targetApi="31">
         <activity
+            android:name=".ArmasActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BendicionesActivity"
+            android:exported="false" />
+        <activity
             android:name=".PersonajesActivity"
             android:exported="false" />
         <activity

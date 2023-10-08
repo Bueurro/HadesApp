@@ -1,11 +1,8 @@
 package com.example.hadesapp
 
-import android.content.Intent
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -26,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView.setOnItemSelectedListener{ menuItem ->
             when(menuItem.itemId){
                 R.id.topAjustes -> {
-                    //replaceFragment()
+                    replaceFragment(SettingsFragment())
                     true
                 }
                 R.id.topHome -> {
@@ -34,7 +31,7 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.topPerfil -> {
-                    //replaceFragment(ArmasInfernalesFragment())
+                    replaceFragment(PerfilFragment())
                     true
                 }
                 else -> false

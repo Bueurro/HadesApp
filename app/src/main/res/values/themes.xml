@@ -1,9 +1,10 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.HadesApp" parent="Theme.AppCompat.NoActionBar">
+    <style name="Theme.HadesApp" parent="Theme.MaterialComponents.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="android:fontFamily">@font/rosario</item>
+        <item name="colorPrimary">@color/rojo_hades</item>
+        <item name="colorPrimaryVariant">@color/oro</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -13,6 +14,7 @@
         <item name="android:statusBarColor">@android:color/transparent</item>
         <!-- Customize your theme here. -->
         <item name="android:windowFullscreen">true</item>
+
 
     </style>
 
@@ -26,7 +28,5 @@
         <item name="windowSplashScreenAnimationDuration">300</item>
         <item name="postSplashScreenTheme">@style/Theme.HadesApp</item>
     </style>
-
-
 
 </resources>

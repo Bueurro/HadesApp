@@ -31,7 +31,8 @@
 
     // ImageButtons
     <dimen name="common_IB_min">128dp</dimen>
-    <dimen name="common_IB_default">256dp</dimen>
+    <dimen name="common_IB_inter">160dp</dimen>
+    <dimen name="common_IB_default">236dp</dimen>
     <dimen name="common_IB_middle">384dp</dimen>
     <dimen name="common_IB_max">512dp</dimen>
 

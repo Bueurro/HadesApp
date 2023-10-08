@@ -5,9 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.hadesapp.databinding.ItemPersonajesBinding
 
-class PersonajeAdapter(private val personajes:List<Personaje>) : RecyclerView.Adapter<PersonajeAdapter.ViewHolder>(){
+class PersonajeAdapter(private val personajes:List<Personaje>, private var listener: OnClickListener) : RecyclerView.Adapter<PersonajeAdapter.ViewHolder>(){
 
     private lateinit var context : Context
 
@@ -24,8 +26,14 @@ class PersonajeAdapter(private val personajes:List<Personaje>) : RecyclerView.Ad
         val personaje = personajes.get(position) //obtiene el pj a manera de foreach
 
         with(holder){
+            setListener(personaje, position)
             binding.txtNombrePj.text = personaje.nombre.toString()
             binding.txtCategoria.text = personaje.categoria
+            Glide.with(context)
+                .load(personaje.foto)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .centerCrop()
+                .into(binding.imgBtnPersonaje)
         }
     }
 
@@ -38,5 +46,9 @@ class PersonajeAdapter(private val personajes:List<Personaje>) : RecyclerView.Ad
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view){
         //conectar el binding con el binding deseado
         val binding = ItemPersonajesBinding.bind(view)
+
+        fun setListener(personaje: Personaje,position: Int) {
+            binding.root.setOnClickListener{ listener.onClick(personaje, position) }
+        }
     }
 }
