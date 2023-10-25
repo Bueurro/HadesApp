@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".InicioActivity">
+    tools:context=".views.InicioActivity">
 
         <!-- COMMS -->
         <ImageView
@@ -14,10 +14,11 @@
             android:scaleType="centerCrop"
             android:src="@drawable/tartarus" />
 
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#9F000000"
+            android:background="#a9000000"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -29,45 +30,153 @@
                     android:layout_marginRight="10dp"
                     android:src="@drawable/hades_logo" />
 
+                <EditText
+                    android:id="@+id/txtEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/txt_redondo"
+                    android:gravity="center"
+                    android:hint="Correo@correo.com"
+                    android:inputType="textEmailAddress"
+                    android:padding="10dp"
+                    android:textColorHint="@color/white" />
 
+                <EditText
+                    android:id="@+id/txtPass"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/txt_redondo"
+                    android:gravity="center"
+                    android:hint="Contraseña"
+                    android:inputType="textPassword"
+                    android:padding="10dp"
+                    android:textColorHint="@color/white" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/swRecuerdame"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:gravity="end"
+                    android:text="Recuerdame"
+                    android:textColor="@color/white" />
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btnLoginTrad"
+                    android:id="@+id/btnLogin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:background="@drawable/btn_redondo_login"
                     android:text="Iniciar Sesión"
-                    android:textColor="@color/white"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
-                    />
 
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btnLoginGoogle"
+                    />
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:background="@drawable/btn_redondo_google"
-                    android:text="Iniciar Sesión con Google"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    />
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/common_padding_min"
+                    android:layout_marginBottom="@dimen/common_margin_min">
 
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btnLoginFacebook"
+
+                        <LinearLayout
+                            android:id="@+id/btnLoginGoogle"
+                            android:layout_width="@dimen/common_linear_login"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/common_padding_min"
+                            android:background="@drawable/btn_redondo_login"
+                            android:orientation="horizontal"
+                            android:gravity="center"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:layout_marginEnd="@dimen/common_margin_min">
+
+                                <ImageView
+                                    android:layout_width="@dimen/common_btnimg_login"
+                                    android:layout_height="@dimen/common_btnimg_login"
+                                    android:background="@android:color/transparent"
+                                    android:src="@drawable/google_logo_icon"
+                                    android:scaleType="centerCrop"
+                                    />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Iniciar con Google"
+                                    android:fontFamily="@font/rosario"
+                                    android:layout_marginLeft="4dp"
+                                    />
+                                
+                        </LinearLayout>
+                        
+                        <LinearLayout
+                            android:id="@+id/btnLoginFacebook"
+                            android:layout_width="@dimen/common_linear_login"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/common_padding_min"
+                            android:background="@drawable/btn_redondo_login"
+                            android:orientation="horizontal"
+                            android:gravity="center"
+                            android:clickable="true">
+
+                                <ImageView
+                                    android:layout_width="@dimen/common_btnimg_login"
+                                    android:layout_height="@dimen/common_btnimg_login"
+                                    android:background="@android:color/transparent"
+                                    android:src="@drawable/facebook_logo_icon"
+                                    android:scaleType="centerCrop"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Iniciar con Facebook"
+                                    android:fontFamily="@font/rosario"
+
+                                    android:layout_marginStart="4dp"
+                                    />
+
+                        </LinearLayout>
+                        
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:background="@drawable/btn_redondo_facebook"
-                    android:text="Iniciar Sesión con Facebook"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    />
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
+                        <TextView
+                            android:id="@+id/txtNoCuenta"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Aun no tienes cuenta?"
+                            android:textColor="@color/white"
+                            android:textSize="16sp" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btnRegistrar"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/btn_redondo_login"
+                            android:text="Crear Cuenta"
+                            android:textColor="@color/white"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"/>
+
+                </LinearLayout>
 
         </LinearLayout>
 

@@ -1,4 +1,4 @@
-package com.example.hadesapp
+package com.example.hadesapp.controllers
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,9 +7,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.example.hadesapp.R
+import com.example.hadesapp.models.Personaje
 import com.example.hadesapp.databinding.ItemPersonajesBinding
 
-class PersonajeAdapter(private val personajes:List<Personaje>, private var listener: OnClickListener) : RecyclerView.Adapter<PersonajeAdapter.ViewHolder>(){
+class PersonajeAdapter(private var personajes:List<Personaje>, private var listener: OnClickListener) : RecyclerView.Adapter<PersonajeAdapter.ViewHolder>(){
 
     private lateinit var context : Context
 
@@ -47,8 +49,13 @@ class PersonajeAdapter(private val personajes:List<Personaje>, private var liste
         //conectar el binding con el binding deseado
         val binding = ItemPersonajesBinding.bind(view)
 
-        fun setListener(personaje: Personaje,position: Int) {
+        fun setListener(personaje: Personaje, position: Int) {
             binding.root.setOnClickListener{ listener.onClick(personaje, position) }
         }
     }
+    fun updateData(newData: List<Personaje>) {
+        personajes = newData
+        notifyDataSetChanged()
+    }
+
 }

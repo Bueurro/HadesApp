@@ -5,14 +5,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".views.MainActivity">
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/frame_container">
-
-
 
         <ImageView
             android:id="@+id/imagen1"
@@ -27,6 +25,8 @@
                     android:background="#63000000"
                     android:gravity="center"
                     android:orientation="vertical">
+
+
                 </LinearLayout>
 
     </FrameLayout>

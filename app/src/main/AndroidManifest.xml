@@ -15,20 +15,20 @@
         android:theme="@style/Theme.HadesApp"
         tools:targetApi="31">
         <activity
-            android:name=".ArmasActivity"
+            android:name=".views.ArmasActivity"
             android:exported="false" />
         <activity
-            android:name=".BendicionesActivity"
+            android:name=".views.BendicionesActivity"
             android:exported="false" />
         <activity
-            android:name=".PersonajesActivity"
+            android:name=".views.PersonajesActivity"
             android:exported="false" />
         <activity
-            android:name=".DialogActivity"
+            android:name=".views.DialogActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.Dialog" />
         <activity
-            android:name=".SplashActivity"
+            android:name=".views.SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.APISplashScreen">
             <intent-filter>
@@ -38,19 +38,19 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".CrudActivity"
+            android:name=".views.CrudActivity"
             android:exported="false" />
         <activity
-            android:name=".RegistroActivity"
+            android:name=".views.RegistroActivity"
             android:exported="false" />
         <activity
-            android:name=".InicioActivity"
+            android:name=".views.InicioActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginDefActivity"
+            android:name=".views.LoginDefActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".views.MainActivity"
             android:exported="false" />
     </application>
 

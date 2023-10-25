@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegistroActivity">
+    tools:context=".views.RegistroActivity">
 
     <ImageView
         android:id="@+id/imgFondo"
@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:text="Ingresa tus datos"
             android:textColor="@color/white"
-            android:textSize="30dp" />
+            android:textSize="30sp" />
 
         <EditText
             android:id="@+id/txtEmail"
@@ -83,7 +83,7 @@
             android:padding="10dp"
             android:textColorHint="@color/white" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnCrear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -106,9 +106,9 @@
                 android:layout_height="wrap_content"
                 android:text="ya tienes cuenta?"
                 android:textColor="@color/white"
-                android:textSize="15dp" />
+                android:textSize="15sp" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

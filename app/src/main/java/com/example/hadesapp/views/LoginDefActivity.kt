@@ -1,9 +1,10 @@
-package com.example.hadesapp
+package com.example.hadesapp.views
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import com.example.hadesapp.R
 
 class LoginDefActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

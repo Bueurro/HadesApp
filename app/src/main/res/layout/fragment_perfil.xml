@@ -1,14 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PerfilFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".views.fragments.PerfilFragment"
+    android:background="@drawable/img_eliseo_bg2">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="#AB000000"
+        >
 
-</FrameLayout>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnCerrarSesion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:background="@drawable/btn_redondo_login"
+            android:padding="@dimen/common_padding_default"
+
+            android:text="@string/sp_log_out"
+
+            android:layout_marginTop="@dimen/common_margin_default"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtCorreoShow" />
+
+        <ImageView
+            android:id="@+id/imgPfp"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+
+
+            android:layout_marginBottom="240dp"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/txtCorreoShow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="default@default.default"
+            android:layout_marginTop="@dimen/common_margin_default"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtNombreShow" />
+
+        <TextView
+            android:id="@+id/txtNombreShow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="default.name"
+            android:layout_marginTop="@dimen/common_margin_default"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgPfp" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</RelativeLayout>

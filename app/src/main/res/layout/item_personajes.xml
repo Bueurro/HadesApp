@@ -39,7 +39,7 @@
             android:layout_marginTop="24dp"
             android:layout_marginEnd="168dp"
             android:layout_marginBottom="106dp"
-            android:text="Nombre:"
+            android:text="@string/str_card_phname"
             android:textColor="@color/oro"
             android:textSize="@dimen/common_text_default"
             android:textStyle="italic|bold"
@@ -52,7 +52,7 @@
             android:id="@+id/txtNombrePj"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hades"
+            android:text="@string/str_card_phnamenm"
             android:textColor="@color/white"
 
             android:textSize="@dimen/common_text_middle"
@@ -66,7 +66,7 @@
             android:id="@+id/txtTextoCat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Categoría:"
+            android:text="@string/str_card_phcat"
             android:textColor="@color/oro"
 
             android:textSize="@dimen/common_text_default"
@@ -83,7 +83,7 @@
             android:id="@+id/txtCategoria"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Dios Ctónico"
+            android:text="@string/str_card_phcatnm"
             android:textColor="@color/white"
             android:textSize="@dimen/common_text_default"
 
@@ -110,17 +110,6 @@
             app:layout_constraintStart_toStartOf="@+id/imgBtnCarta"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/imgBtnBasurero"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginEnd="@dimen/common_margin_min"
-            android:layout_marginTop="@dimen/common_margin_min"
-            android:background="@android:color/transparent"
-            android:scaleType="centerInside"
-            android:src="@drawable/img_pngbasurero"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/imgBtnCarta" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </com.google.android.material.card.MaterialCardView>

@@ -24,4 +24,15 @@
     <string name="dialog_title">Bienvenido</string>
     <string name="dialog_confirm">Confirmar</string>
     <string name="dialog_cancel">Cancelar</string>
+    <string name="str_facebook_log">Facebook</string>
+    <string name="str_google_log">Google</string>
+    <string name="sp_remember_me">Recuerdame</string>
+    <string name="sp_log_out">Cerrar Sesión</string>
+
+    <string name="preferences_file">com.example.hades.PREFERENCE_FILE_KEY</string>
+    <string name="default_web_client_id">940145425351-pn2aqvn9g0m1qao0j79cj7qbbg9tn2dk.apps.googleusercontent.com</string>
+    <string name="str_card_phname">Nombre:</string>
+    <string name="str_card_phcatnm">Dios Ctónico</string>
+    <string name="str_card_phnamenm">Hades</string>
+    <string name="str_card_phcat">Categoría:</string>
 </resources>

@@ -12,7 +12,20 @@
           "package_name": "com.example.hadesapp"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "940145425351-ggcl2epi4e9mc8jm51ku4redngajjed2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hadesapp",
+            "certificate_hash": "748e36e31473bee30aaa412bfeede6b4a93aa1d3"
+          }
+        },
+        {
+          "client_id": "940145425351-pn2aqvn9g0m1qao0j79cj7qbbg9tn2dk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyDhwC53vmmFKwz-2LNiCadC-p6ffdC6fG8"
@@ -20,7 +33,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "940145425351-pn2aqvn9g0m1qao0j79cj7qbbg9tn2dk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

@@ -44,5 +44,11 @@
     <dimen name="common_card_height_max">152dp</dimen>
     <dimen name="common_back_max">64dp</dimen>
 
+    // btnImg log-ins
+    <dimen name="common_btnimg_login">28dp</dimen>
+
+    // linear log-ins
+    <dimen name="common_linear_login">170dp</dimen>
+
 
 </resources>
