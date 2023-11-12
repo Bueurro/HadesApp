@@ -29,7 +29,6 @@ class PersonajesActivity : AppCompatActivity(), OnClickListener {
         setContentView(binding.root)
 
         // INICIALIZAR
-
         personajeAdapter = PersonajeAdapter(emptyList(), this)
         linearLayoutManager = LinearLayoutManager(this)
 

@@ -4,11 +4,10 @@ import android.content.Context
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import com.example.hadesapp.views.fragments.MainFragment
-import com.example.hadesapp.views.fragments.PerfilFragment
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.NavigationUI.setupWithNavController
 import com.example.hadesapp.R
-import com.example.hadesapp.views.fragments.SettingsFragment
 import com.example.hadesapp.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -18,8 +17,8 @@ enum class ProviderType {
 }
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var navController: NavController
     private lateinit var binding: ActivityMainBinding
-    private lateinit var bottomNavigationView: BottomNavigationView
     private var mediaPlayer : MediaPlayer? = null
     private var position: Int = 0
 
@@ -41,38 +40,15 @@ class MainActivity : AppCompatActivity() {
         preferences.putString("provider",provider)
         preferences.apply()
 
-
-
         //Inicio Bottom Navigation View
-        bottomNavigationView = findViewById(R.id.top_menu)
-        bottomNavigationView.selectedItemId = R.id.topHome
-        bottomNavigationView.setOnItemSelectedListener{ menuItem ->
-            when(menuItem.itemId){
-                R.id.topAjustes -> {
-                    replaceFragment(SettingsFragment())
-                    true
-                }
-                R.id.topHome -> {
-                    replaceFragment(MainFragment())
-                    true
-                }
-                R.id.topPerfil -> {
-                    replaceFragment(PerfilFragment())
-                    true
-                }
-                else -> false
-            }
-        }
-        replaceFragment(MainFragment())
-        //Fin Bottom Navigation View
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.hostFragmentManager) as NavHostFragment
+        navController = navHostFragment.navController
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.top_menu)
+        setupWithNavController(bottomNavigationView, navController)
     }
 
     private fun setup(email: String, provider: String){
 
-    }
-
-    private fun replaceFragment(fragment: Fragment){
-        supportFragmentManager.beginTransaction().replace(R.id.frame_container, fragment).commit()
     }
 
     //states: SE EJECUTAN CUANDO

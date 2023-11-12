@@ -2,15 +2,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/topAjustes"
+        android:id="@+id/settingsFragment"
         android:title="@string/Ajustes"
         android:icon="@drawable/img_ares_boond"/>
     <item
-        android:id="@+id/topHome"
+        android:id="@+id/mainFragment"
         android:title="@string/Inicio"
         android:icon="@drawable/img_personajes_logo2"/>
     <item
-        android:id="@+id/topPerfil"
+        android:id="@+id/perfilFragment"
         android:title="@string/Perfil"
         android:icon="@drawable/img_logo"
         android:checked="true"/>

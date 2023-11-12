@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/mainFragment">
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.hadesapp.views.fragments.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_armasFragment2"
+            app:destination="@id/armasFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_bendicionesFragment"
+            app:destination="@id/bendicionesFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_personajesFragment"
+            app:destination="@id/personajesFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popUpTo="@id/mainFragment"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_mainFragment_to_perfilFragment"
+            app:destination="@id/perfilFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/armasFragment"
+        android:name="com.example.hadesapp.views.fragments.ArmasFragment"
+        android:label="fragment_armas"
+        tools:layout="@layout/fragment_armas" >
+        <action
+            android:id="@+id/action_armasFragment2_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bendicionesFragment"
+        android:name="com.example.hadesapp.views.fragments.BendicionesFragment"
+        android:label="fragment_bendiciones"
+        tools:layout="@layout/fragment_bendiciones" >
+        <action
+            android:id="@+id/action_bendicionesFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/personajesFragment"
+        android:name="com.example.hadesapp.views.fragments.PersonajesFragment"
+        android:label="fragment_personajes"
+        tools:layout="@layout/fragment_personajes" >
+        <action
+            android:id="@+id/action_personajesFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/perfilFragment"
+        android:name="com.example.hadesapp.views.fragments.PerfilFragment"
+        android:label="fragment_perfil"
+        tools:layout="@layout/fragment_perfil" >
+        <action
+            android:id="@+id/action_perfilFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.hadesapp.views.fragments.SettingsFragment"
+        android:label="SettingsFragment" >
+        <action
+            android:id="@+id/action_settingsFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+</navigation>
