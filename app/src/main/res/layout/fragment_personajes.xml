@@ -25,7 +25,6 @@
             android:orientation="vertical"
             android:background="@drawable/img_marco1080">
 
-
             <ImageButton
                 android:id="@+id/imgBtnVolver"
                 android:layout_width="@dimen/common_back_max"
@@ -36,6 +35,16 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/img_personajes_title"
+                android:padding="@dimen/common_padding_title"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+            <!--
             <TextView
                 android:id="@+id/txtTest"
                 android:layout_width="wrap_content"
@@ -48,6 +57,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+                -->
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -58,16 +68,19 @@
             android:layout_centerInParent="true"
             android:visibility="gone" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvPersonajes"
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipeRefresherLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:listitem="@layout/item_personajes"
-
+            android:layout_height="match_parent"
             >
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvPersonajes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/item_personajes"/>
 
-        </androidx.recyclerview.widget.RecyclerView>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     </LinearLayout>
 

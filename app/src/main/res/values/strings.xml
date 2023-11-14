@@ -35,4 +35,18 @@
     <string name="str_card_phcatnm">Dios Ctónico</string>
     <string name="str_card_phnamenm">Hades</string>
     <string name="str_card_phcat">Categoría:</string>
+    <string name="str_add">Añadir</string>
+    <string name="nombre">Nombre:</string>
+    <string name="categoria">Categoría:</string>
+    <string name="titulo">Título:</string>
+    <string name="regalo_o_bendicion">Regalo o Bendición:</string>
+    <string name="descripcion">Descripción:</string>
+    <string name="foto">Foto:</string>
+    <string name="limpiar">Limpiar</string>
+    <string name="guardar">Guardar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="str_default">default</string>
+    <string name="str_titulo">Título:</string>
+    <string name="str_regalo">Regalo:</string>
+    <string name="str_descripcion">Descripción:</string>
 </resources>

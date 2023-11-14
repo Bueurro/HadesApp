@@ -16,6 +16,7 @@
     <dimen name="common_padding_default">16dp</dimen>
     <dimen name="common_padding_middle">24dp</dimen>
     <dimen name="common_padding_max">32dp</dimen>
+    <dimen name="common_padding_title">45dp</dimen>
 
     // textos
     <dimen name="common_text_min">8sp</dimen>
@@ -49,6 +50,8 @@
 
     // linear log-ins
     <dimen name="common_linear_login">170dp</dimen>
+    <dimen name="common_padding_drawable1">130dp</dimen>
+    <dimen name="common_padding_drawable2">256dp</dimen>
 
 
 </resources>

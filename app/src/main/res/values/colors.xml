@@ -19,4 +19,8 @@
     <color name="oro2">#fec71d</color>
     <color name="amarillo">#fff500</color>
     <color name="morado_lagrima">#7119a5</color>
+
+    <color name="bottom_nav_background">#90B71D00</color>
+    <color name="bottom_nav_item">#C0C0C0</color>
+    <color name="bottom_nav_selected_item">#fec71d</color>
 </resources>

@@ -8,19 +8,75 @@
     tools:context=".views.MainActivity"
     android:background="@color/rojo_hades">
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/menuFabBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_arrow"
+        android:backgroundTint="@color/plata"
+        android:tint="@color/white"
+        app:borderWidth="0dp"
+
+        android:contentDescription="@string/Perfil"
+        android:clickable="true"
+        android:focusable="true"
+
+        app:layout_constraintBottom_toTopOf="@+id/top_menu"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="@dimen/common_margin_min"
+        />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addFabBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:layout_marginEnd="@dimen/common_margin_min"
+        android:backgroundTint="@color/oro"
+        android:clickable="true"
+        android:contentDescription="@string/Perfil"
+        android:visibility="invisible"
+
+        android:focusable="true"
+        android:tint="@color/white"
+        app:borderWidth="0dp"
+
+        app:layout_constraintBottom_toTopOf="@+id/menuFabBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_add" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/deleteFabBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:layout_marginEnd="@dimen/common_margin_min"
+        android:backgroundTint="@color/oro"
+        android:clickable="true"
+        android:contentDescription="@string/Perfil"
+        android:visibility="invisible"
+
+        android:focusable="true"
+        android:tint="@color/white"
+        app:borderWidth="0dp"
+
+        app:layout_constraintBottom_toTopOf="@+id/addFabBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_delete" />
+
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/hostFragmentManager"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:defaultNavHost="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         app:navGraph="@navigation/main_graph">
-
-
 
     </androidx.fragment.app.FragmentContainerView>
 
@@ -29,16 +85,16 @@
         android:layout_width="match_parent"
         android:layout_height="64dp"
 
-
         android:background="@drawable/menu"
-        app:menu="@menu/top_menu"
-        app:itemIconTint="@color/oro2"
-        app:itemTextColor="@color/plata"
-
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:itemIconTint="@drawable/bottom_nav_colors"
+        app:itemTextColor="@drawable/bottom_nav_colors"
         app:layout_constraintBottom_toBottomOf="parent"
 
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:menu="@menu/top_menu"
+        app:layout_wrapBehaviorInParent="vertical_only"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

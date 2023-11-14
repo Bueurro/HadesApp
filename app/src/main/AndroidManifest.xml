@@ -16,15 +16,6 @@
         android:theme="@style/Theme.HadesApp"
         tools:targetApi="31">
         <activity
-            android:name=".views.ArmasActivity"
-            android:exported="false" />
-        <activity
-            android:name=".views.BendicionesActivity"
-            android:exported="false" />
-        <activity
-            android:name=".views.PersonajesActivity"
-            android:exported="false" />
-        <activity
             android:name=".views.DialogActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.Dialog" />
@@ -39,20 +30,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".views.CrudActivity"
-            android:exported="false" />
-        <activity
             android:name=".views.RegistroActivity"
             android:exported="false" />
         <activity
             android:name=".views.InicioActivity"
             android:exported="false" />
         <activity
-            android:name=".views.LoginDefActivity"
-            android:exported="false" />
-        <activity
             android:name=".views.MainActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan"/>
     </application>
 
 </manifest>

@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.hadesapp.R
 import com.example.hadesapp.controllers.OnClickListener
 import com.example.hadesapp.controllers.PersonajeAdapter
@@ -28,7 +29,7 @@ class PersonajesFragment : Fragment(), OnClickListener {
     private val db = Firebase.firestore
 
     override fun onClick(personaje: Personaje, position: Int) {
-        Toast.makeText(this.context, "${personaje.id}: ${personaje.toString()}", Toast.LENGTH_SHORT).show()
+        findNavController().navigate(PersonajesFragmentDirections.actionPersonajesFragmentToPersonajeDetalleFragment(personaje.id))
     }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View? {
          binding = FragmentPersonajesBinding.inflate(inflater, container, false)
@@ -53,6 +54,20 @@ class PersonajesFragment : Fragment(), OnClickListener {
             personajeAdapter.updateData(personajes)
         }
 
+        //swipe refresher
+        val swipe : SwipeRefreshLayout = binding.swipeRefresherLayout
+        swipe.setOnRefreshListener {
+            //obtiene la lista denuevo
+            getPersonaje { personajes ->
+                // Actualiza el adaptador con los personajes obtenidos
+                personajeAdapter.updateData(personajes)
+            }
+            //notifica el cambio
+            personajeAdapter.notifyDataSetChanged()
+            //detiene el refresh
+            swipe.isRefreshing = false
+        }
+
         return binding.root
     }
 
@@ -71,7 +86,7 @@ class PersonajesFragment : Fragment(), OnClickListener {
                         val nombre = document.getString("Nombre") ?: ""
                         val categoria = document.getString("Categoria") ?: ""
                         val titulo = document.getString("Titulo") ?: ""
-                        val regaloBendicion = document.getString("RegaloBendicion") ?: ""
+                        val regaloBendicion = document.getString("Regalo") ?: ""
                         val foto = document.getString("Foto") ?: ""
                         val descripcion = document.getString("Descripcion") ?: ""
 

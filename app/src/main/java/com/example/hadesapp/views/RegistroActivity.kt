@@ -38,7 +38,7 @@ class RegistroActivity : AppCompatActivity() {
         }
 
         binding.btnLogin.setOnClickListener {
-            val intent = Intent(this, LoginDefActivity::class.java)
+            val intent = Intent(this, InicioActivity::class.java)
             startActivity(intent)
         }
 

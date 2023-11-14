@@ -23,12 +23,6 @@
             app:popUpTo="@id/mainFragment"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
-        <action
-            android:id="@+id/action_mainFragment_to_perfilFragment"
-            app:destination="@id/perfilFragment" />
-        <action
-            android:id="@+id/action_mainFragment_to_settingsFragment"
-            app:destination="@id/settingsFragment" />
     </fragment>
     <fragment
         android:id="@+id/armasFragment"
@@ -56,22 +50,41 @@
         <action
             android:id="@+id/action_personajesFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_personajesFragment_to_personajeAddFragment"
+            app:destination="@id/personajeAddFragment" />
+        <action
+            android:id="@+id/action_personajesFragment_to_personajeDetalleFragment"
+            app:destination="@id/personajeDetalleFragment" />
     </fragment>
     <fragment
         android:id="@+id/perfilFragment"
         android:name="com.example.hadesapp.views.fragments.PerfilFragment"
         android:label="fragment_perfil"
-        tools:layout="@layout/fragment_perfil" >
-        <action
-            android:id="@+id/action_perfilFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_perfil" />
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.example.hadesapp.views.fragments.SettingsFragment"
-        android:label="SettingsFragment" >
+        android:label="SettingsFragment" />
+    <fragment
+        android:id="@+id/personajeAddFragment"
+        android:name="com.example.hadesapp.views.fragments.PersonajeAddFragment"
+        android:label="fragment_personaje_add"
+        tools:layout="@layout/fragment_personaje_add" >
         <action
-            android:id="@+id/action_settingsFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
+            android:id="@+id/action_personajeAddFragment_to_personajesFragment"
+            app:destination="@id/personajesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/personajeDetalleFragment"
+        android:name="com.example.hadesapp.views.fragments.PersonajeDetalleFragment"
+        android:label="fragment_personaje_detalle"
+        tools:layout="@layout/fragment_personaje_detalle" >
+        <argument
+            android:name="idPersonaje"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_personajeDetalleFragment_to_personajesFragment"
+            app:destination="@id/personajesFragment" />
     </fragment>
 </navigation>

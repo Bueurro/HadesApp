@@ -22,11 +22,11 @@ class MainFragment : Fragment() {
         }
 
         binding.btnBendiciones.setOnClickListener {
-
+            findNavController().navigate(R.id.action_mainFragment_to_bendicionesFragment)
         }
 
         binding.btnArmas.setOnClickListener {
-
+            findNavController().navigate(R.id.action_mainFragment_to_armasFragment2)
         }
 
 
