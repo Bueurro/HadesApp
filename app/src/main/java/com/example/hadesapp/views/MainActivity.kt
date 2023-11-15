@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import android.widget.Toast
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
@@ -26,22 +27,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var navController: NavController
     private lateinit var binding: ActivityMainBinding
     private var mediaPlayer : MediaPlayer? = null
+    private var FxMediaPlayer : MediaPlayer? = null
     private var position: Int = 0
-    private var isExpanded = false
     private var currentView = ""
-    private val fromBottomFabAnim : Animation by lazy {
-        AnimationUtils.loadAnimation(this, R.anim.from_botom_fab)
-    }
-    private val toBottomFabAnim : Animation by lazy {
-        AnimationUtils.loadAnimation(this, R.anim.to_bottom_fab)
-    }
-    private val rotateClockWise : Animation by lazy {
-        AnimationUtils.loadAnimation(this, R.anim.rotate_clock_wise)
-    }
-    private val rotateAntiClockWise : Animation by lazy {
-        AnimationUtils.loadAnimation(this, R.anim.rotate_anti_clock_wise)
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -70,46 +58,12 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { _, nd: NavDestination, _ ->
             if (nd.id == R.id.mainFragment || nd.id == R.id.settingsFragment || nd.id == R.id.perfilFragment) {
                 bottomNavigationView.visibility = View.VISIBLE
-                binding.menuFabBtn.visibility = View.GONE
                 currentView = nd.id.toString()
             } else {
                 bottomNavigationView.visibility = View.GONE
-                binding.menuFabBtn.visibility = View.VISIBLE
                 currentView = nd.id.toString()
             }
         }
-
-        // Fab Button
-
-        binding.menuFabBtn.setOnClickListener{
-            if (isExpanded){
-                shrinkFab()
-            } else {
-                expandFab()
-            }
-        }
-
-        binding.addFabBtn.setOnClickListener {
-
-        }
-    }
-
-    private fun expandFab() {
-
-        binding.menuFabBtn.startAnimation(rotateClockWise)
-        binding.addFabBtn.startAnimation(fromBottomFabAnim)
-        binding.deleteFabBtn.startAnimation(fromBottomFabAnim)
-
-        isExpanded = !isExpanded
-    }
-
-    private fun shrinkFab() {
-
-        binding.menuFabBtn.startAnimation(rotateAntiClockWise)
-        binding.addFabBtn.startAnimation(toBottomFabAnim)
-        binding.deleteFabBtn.startAnimation(toBottomFabAnim)
-
-        isExpanded = !isExpanded
     }
 
     fun setup(email: String, provider: String){
@@ -122,6 +76,8 @@ class MainActivity : AppCompatActivity() {
         super.onStart()
         mediaPlayer = MediaPlayer.create(this, R.raw.hohmusica)
         mediaPlayer?.start()
+        FxMediaPlayer = MediaPlayer.create(this, R.raw.aud_flap_wing12)
+        FxMediaPlayer?.start()
     }
 
     //SE VUELVE A LA APP

@@ -3,7 +3,7 @@
 
     <item
         android:id="@+id/settingsFragment"
-        android:title="@string/Ajustes"
+        android:title="@string/Armas"
         android:icon="@drawable/img_ares_boond"/>
     <item
         android:id="@+id/mainFragment"

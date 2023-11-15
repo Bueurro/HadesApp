@@ -30,6 +30,11 @@
     <dimen name="common_widht_middle">64dp</dimen>
     <dimen name="common_widht_max">128dp</dimen>
 
+    // ImageViews
+    <dimen name="common_IV_min">52dp</dimen>
+    <dimen name="common_IV_def">86dp</dimen>
+    <dimen name="common_IV_middle">122dp</dimen>
+
     // ImageButtons
     <dimen name="common_IB_min">128dp</dimen>
     <dimen name="common_IB_inter">160dp</dimen>
@@ -51,7 +56,8 @@
     // linear log-ins
     <dimen name="common_linear_login">170dp</dimen>
     <dimen name="common_padding_drawable1">130dp</dimen>
-    <dimen name="common_padding_drawable2">256dp</dimen>
+    <dimen name="common_padding_drawable2">226dp</dimen>
+    <dimen name="common_padding_drawable3">100dp</dimen>
 
 
 </resources>

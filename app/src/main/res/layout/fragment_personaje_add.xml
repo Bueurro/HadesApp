@@ -111,15 +111,15 @@
             android:padding="@dimen/common_margin_min">
 
             <TextView
-                android:id="@+id/txtCrdRegaloBendicion"
+                android:id="@+id/txtCrdRegalo"
                 android:layout_width="@dimen/common_IB_inter"
                 android:layout_height="wrap_content"
-                android:text="@string/regalo_o_bendicion"
+                android:text="@string/regalo"
                 android:layout_marginEnd="@dimen/common_margin_min"
                 android:textSize="@dimen/common_text_default"/>
 
             <EditText
-                android:id="@+id/inpCrdRegaloBendicion"
+                android:id="@+id/inpCrdRegalo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -190,6 +190,7 @@
             android:layout_marginTop="@dimen/common_margin_min">
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnLimpiar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/limpiar"
@@ -201,13 +202,14 @@
                 android:layout_marginEnd="@dimen/common_margin_min"/>
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnGuardar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/guardar"
                 android:background="@drawable/btn_save_gradient"
                 android:paddingEnd="@dimen/common_padding_default"
                 android:drawableStart="@drawable/ic_save"
-                android:drawablePadding="@dimen/common_padding_drawable1"
+                android:drawablePadding="@dimen/common_padding_drawable3"
                 android:paddingStart="@dimen/common_padding_default"/>
 
 
@@ -215,9 +217,10 @@
         </LinearLayout>
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnCanelar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/cancelar"
+            android:text="@string/volver"
             android:background="@drawable/btn_cancel_gradient"
             android:drawableStart="@drawable/ic_cancel"
             android:drawablePadding="@dimen/common_padding_drawable2"

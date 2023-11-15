@@ -27,7 +27,7 @@ class PersonajeDetalleFragment : Fragment() {
         binding = FragmentPersonajeDetalleBinding.inflate(inflater, container, false)
 
         binding.imgBtnVolver.setOnClickListener{
-            findNavController().navigate(R.id.action_personajeDetalleFragment_to_personajesFragment)
+            findNavController().popBackStack()
         }
 
         obtenerPersonaje(args.idPersonaje) { personaje ->
