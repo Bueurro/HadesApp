@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/common_card_size"
+    android:layout_height="@dimen/common_card_size"
+    android:layout_marginStart="@dimen/common_margin_min"
+    android:layout_marginEnd="@dimen/common_margin_min"
+    android:layout_marginTop="@dimen/common_margin_min"
+    app:cardBackgroundColor="@android:color/transparent"
+    android:outlineSpotShadowColor="@android:color/transparent">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layCard"
+        android:layout_width="@dimen/common_card_size"
+        android:layout_height="@dimen/common_card_size">
+
+        <ImageView
+            android:id="@+id/imgBtnCarta"
+            android:layout_width="@dimen/common_card_size"
+            android:layout_height="@dimen/common_card_size"
+            android:background="@android:color/transparent"
+            android:scaleType="fitXY"
+            android:src="@drawable/img_block_bg"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imgArma"
+            android:layout_width="@dimen/common_card_pic_size"
+            android:layout_height="@dimen/common_card_pic_size"
+            android:maxWidth="@dimen/common_card_pic_size"
+            android:maxHeight="@dimen/common_card_pic_size"
+            android:scaleType="fitXY"
+            android:src="@drawable/img_armas_infernales_2"
+            android:padding="@dimen/common_padding_default"
+            android:layout_marginBottom="@dimen/common_margin_middle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/imgBtnCarta"
+            app:layout_constraintStart_toStartOf="@+id/imgBtnCarta"
+            app:layout_constraintTop_toTopOf="@+id/imgBtnCarta" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="6dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/img_pngcarta"
+            app:layout_constraintBottom_toBottomOf="@+id/imgBtnCarta"
+            app:layout_constraintEnd_toEndOf="@+id/imgBtnCarta"
+            app:layout_constraintStart_toStartOf="@+id/imgBtnCarta" />
+
+        <TextView
+            android:id="@+id/txtNombreArma"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/str_card_phnamear"
+            android:textColor="@color/white"
+            android:textSize="@dimen/common_text_default"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+            app:layout_constraintEnd_toEndOf="@+id/imageView4"
+            app:layout_constraintStart_toStartOf="@+id/imageView4"
+            app:layout_constraintTop_toTopOf="@+id/imageView4" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

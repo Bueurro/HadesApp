@@ -1,45 +1,45 @@
 package com.example.hadesapp.views.fragments
 
-import android.content.ContentValues.TAG
+import android.content.ContentValues
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
+import android.view.KeyEvent
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.hadesapp.R
-import com.example.hadesapp.databinding.FragmentPersonajeAddBinding
+import com.example.hadesapp.databinding.FragmentArmaAddBinding
+import com.example.hadesapp.models.Arma
+import com.example.hadesapp.models.Aspecto
+import com.example.hadesapp.models.Personaje
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import android.view.KeyEvent
-import android.view.inputmethod.InputMethodManager
-import androidx.core.content.getSystemService
-import androidx.navigation.fragment.navArgs
-import com.example.hadesapp.models.Personaje
 
-class PersonajeAddFragment : Fragment() {
-
-    private val args:PersonajeAddFragmentArgs by navArgs()
-    private lateinit var binding: FragmentPersonajeAddBinding
+class ArmaAddFragment : Fragment() {
+    private lateinit var binding : FragmentArmaAddBinding
+    private val args:ArmaAddFragmentArgs by navArgs()
     private var mContext = this.context
     private val db = Firebase.firestore
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View {
-        binding = FragmentPersonajeAddBinding.inflate(inflater, container, false)
+    override fun onCreateView(  inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        binding = FragmentArmaAddBinding.inflate(inflater, container, false)
 
-        if (args.idPersonaje!=null){
+        if (args.idAr!=null){
             cargarDatos()
             binding.btnGuardar.setOnClickListener {
                 fragHideKeyboard()
-                actualizarPersonaje() }
+                actualizarArma() }
             binding.btnLimpiar.visibility = View.GONE
         } else {
             binding.btnGuardar.setOnClickListener {
                 fragHideKeyboard()
-                guardarPersonaje() }
+                guardarArma() }
             binding.btnLimpiar.visibility = View.VISIBLE
             binding.btnLimpiar.setOnClickListener {
                 limpiarCampos()
@@ -54,25 +54,27 @@ class PersonajeAddFragment : Fragment() {
         return binding.root
     }
 
-    private fun cargarDatos() {
-        val personajeBase = db.collection("Personajes").document(args.idPersonaje.toString())
 
-        personajeBase.get()
+    private fun cargarDatos() {
+        val armaBase = db.collection("Armas").document(args.idAr.toString())
+
+        armaBase.get()
             .addOnSuccessListener { documentSnapshot ->
                 if (documentSnapshot.exists()) {
-                    val nombre = documentSnapshot.getString("Nombre")
-                    val titulo = documentSnapshot.getString("Titulo")
-                    val categoria = documentSnapshot.getString("Categoria")
-                    val regalo = documentSnapshot.getString("Regalo")
-                    val descripcion = documentSnapshot.getString("Descripcion")
-                    val foto = documentSnapshot.getString("Foto")
+                    val nombre = documentSnapshot.getString("nombre")
+                    val antiguoPortador = documentSnapshot.getString("antiguoPortador")
+                    val condicion = documentSnapshot.getString("condicion")
+                    val estilo = documentSnapshot.getString("estilo")
+                    val descripcion = documentSnapshot.getString("descripcion")
+                    val foto = documentSnapshot.getString("foto")
 
                     binding.inpCrdNombre.setText(nombre)
-                    binding.inpCrdTitulo.setText(titulo)
-                    binding.inpCrdCategoria.setText(categoria)
-                    binding.inpCrdRegalo.setText(regalo)
+                    binding.inpCrdAP.setText(antiguoPortador)
+                    binding.inpCrdCondicion.setText(condicion)
+                    binding.inpCrdEstilo.setText(estilo)
                     binding.inpCrdDescripcion.setText(descripcion)
                     binding.inpCrdFoto.setText(foto)
+
                 } else {
                     Toast.makeText(mContext, "Error desconocido", Toast.LENGTH_SHORT).show()
                 }
@@ -82,74 +84,75 @@ class PersonajeAddFragment : Fragment() {
             }
     }
 
-    private fun actualizarPersonaje() {
-        val personajeEditado = Personaje(
+    private fun actualizarArma() {
+        val armaEditada = Arma(
             id = "temp",
             nombre = binding.inpCrdNombre.text.toString(),
             foto = binding.inpCrdFoto.text.toString(),
-            titulo = binding.inpCrdTitulo.text.toString(),
-            categoria = binding.inpCrdCategoria.text.toString(),
-            regalo = binding.inpCrdRegalo.text.toString(),
-            descripcion = binding.inpCrdDescripcion.text.toString()
+            descripcion = binding.inpCrdAP.text.toString(),
+            condicion = binding.inpCrdCondicion.text.toString(),
+            estilo = binding.inpCrdEstilo.text.toString(),
+            antiguoPortador = binding.inpCrdDescripcion.text.toString(),
+            aspectos = emptyMap()
         )
-        val personajeBase = db.collection("Personajes").document(args.idPersonaje.toString())
-        personajeBase
+        val armaBase = db.collection("Armas").document(args.idAr.toString())
+        armaBase
             .update(mapOf(
-                "Nombre" to personajeEditado.nombre,
-                "Foto" to personajeEditado.foto,
-                "Titulo" to personajeEditado.titulo,
-                "Categoria" to personajeEditado.categoria,
-                "Regalo" to personajeEditado.regalo,
-                "Descripcion" to personajeEditado.descripcion
+                "nombre" to armaEditada.nombre,
+                "foto" to armaEditada.foto,
+                "descripcion" to armaEditada.descripcion,
+                "condicion" to armaEditada.condicion,
+                "estilo" to armaEditada.estilo,
+                "antiguoPortador" to armaEditada.antiguoPortador
             ))
             .addOnSuccessListener {
-                Log.d(TAG, "DocumentSnapshot successfully updated!")
-                Toast.makeText(requireContext(), "Personaje: ${personajeEditado.nombre}. Editado satisfactoriamente", Toast.LENGTH_SHORT).show()
+                Log.d(ContentValues.TAG, "DocumentSnapshot successfully updated!")
+                Toast.makeText(requireContext(), "Arma: ${armaEditada.nombre}. Editada satisfactoriamente", Toast.LENGTH_SHORT).show()
             }
-            .addOnFailureListener {
-                    e -> Log.w(TAG, "Error updating document", e)
-                Toast.makeText(requireContext(), "Error actualizando el personaje: ${args.idPersonaje}", Toast.LENGTH_SHORT).show()
+            .addOnFailureListener {e ->
+                Log.w(ContentValues.TAG, "Error updating document", e)
+                Toast.makeText(requireContext(), "Error actualizando el personaje: ${args.idAr}", Toast.LENGTH_SHORT).show()
             }
     }
 
     fun fragHideKeyboard(){
         val imm = this.context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        imm.hideSoftInputFromWindow(binding.inpCrdDescripcion.windowToken, 0)
+        imm.hideSoftInputFromWindow(binding.root.windowToken, 0)
     }
     fun Fragment.configurarInputs(){
 
         binding.inpCrdNombre.setOnKeyListener { _, keyCode, event ->
             if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_UP) {
-                binding.inpCrdCategoria.requestFocus()
+                binding.inpCrdAP.requestFocus()
                 return@setOnKeyListener true
             }
             false
         }
 
-        binding.inpCrdCategoria.setOnKeyListener { _, keyCode, event ->
+        binding.inpCrdAP.setOnKeyListener { _, keyCode, event ->
             if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_UP) {
-                binding.inpCrdTitulo.requestFocus()
+                binding.inpCrdCondicion.requestFocus()
                 return@setOnKeyListener true
             }
             false
         }
 
-        binding.inpCrdTitulo.setOnKeyListener { _, keyCode, event ->
-            if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_UP) {
-                binding.inpCrdRegalo.requestFocus()
-                return@setOnKeyListener true
-            }
-            false
-        }
-        binding.inpCrdRegalo.setOnKeyListener { _, keyCode, event ->
+        binding.inpCrdCondicion.setOnKeyListener { _, keyCode, event ->
             if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_UP) {
                 binding.inpCrdDescripcion.requestFocus()
                 return@setOnKeyListener true
             }
             false
         }
+        binding.inpCrdDescripcion.setOnKeyListener { _, keyCode, event ->
+            if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_UP) {
+                binding.inpCrdEstilo.requestFocus()
+                return@setOnKeyListener true
+            }
+            false
+        }
 
-        binding.inpCrdRegalo.setOnKeyListener { _, keyCode, event ->
+        binding.inpCrdEstilo.setOnKeyListener { _, keyCode, event ->
             if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_UP) {
                 binding.inpCrdFoto.requestFocus()
                 return@setOnKeyListener true
@@ -179,41 +182,41 @@ class PersonajeAddFragment : Fragment() {
     fun limpiarCampos() {
         binding.inpCrdFoto.text.clear()
         binding.inpCrdNombre.text.clear()
-        binding.inpCrdTitulo.text.clear()
-        binding.inpCrdCategoria.text.clear()
-        binding.inpCrdRegalo.text.clear()
+        binding.inpCrdEstilo.text.clear()
+        binding.inpCrdAP.text.clear()
+        binding.inpCrdCondicion.text.clear()
         binding.inpCrdDescripcion.text.clear()
     }
 
     fun validarCampos(): Boolean{
-        return (binding.inpCrdNombre.text.toString() != "" || binding.inpCrdFoto.text.toString() != "" || binding.inpCrdTitulo.text.toString() != "" || binding.inpCrdCategoria.text.toString() != "" || binding.inpCrdRegalo.text.toString() != "" || binding.inpCrdDescripcion.text.toString() != "")
+        return (binding.inpCrdNombre.text.toString() != "" || binding.inpCrdFoto.text.toString() != "" || binding.inpCrdEstilo.text.toString() != "" || binding.inpCrdAP.text.toString() != "" || binding.inpCrdCondicion.text.toString() != "" || binding.inpCrdDescripcion.text.toString() != "")
     }
 
-    private fun guardarPersonaje() {
+    private fun guardarArma() {
         if (validarCampos()) {
             val data = hashMapOf(
-                "Nombre" to binding.inpCrdNombre.text.toString(),
-                "Foto" to binding.inpCrdFoto.text.toString(),
-                "Titulo" to binding.inpCrdTitulo.text.toString(),
-                "Categoria" to binding.inpCrdCategoria.text.toString(),
-                "Regalo" to binding.inpCrdRegalo.text.toString(),
-                "Descripcion" to binding.inpCrdDescripcion.text.toString()
+                "nombre" to binding.inpCrdNombre.text.toString(),
+                "foto" to binding.inpCrdFoto.text.toString(),
+                "condicion" to binding.inpCrdCondicion.text.toString(),
+                "estilo" to binding.inpCrdEstilo.text.toString(),
+                "antiguoPortador" to binding.inpCrdAP.text.toString(),
+                "descripcion" to binding.inpCrdDescripcion.text.toString(),
+                "aspectos" to mapOf<String,String>()
             )
-            db.collection("Personajes")
+            db.collection("Armas")
                 .add(data)
                 .addOnSuccessListener { documentReference ->
-                    Log.d(TAG, "Se ha creado el documento de ID: ${documentReference.id}")
+                    Log.d(ContentValues.TAG, "Se ha creado el documento de ID: ${documentReference.id}")
                     Toast.makeText(this.context, "Se ha creado el documento de ID: ${documentReference.id}", Toast.LENGTH_SHORT).show()
                     limpiarCampos()
                 }
                 .addOnFailureListener { e ->
-                    Log.w(TAG, "Error añadiendo el documento: ", e)
+                    Log.w(ContentValues.TAG, "Error añadiendo el documento: ", e)
                     Toast.makeText(this.context, "Error añadiendo el documento: $e", Toast.LENGTH_SHORT).show()
                 }
         } else {
-            Toast.makeText(this.context, "Porfavor rellene todos los campos. No se ha agregado el personaje.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this.context, "Porfavor rellene todos los campos. No se ha agregado la Arma.", Toast.LENGTH_SHORT).show()
         }
     }
-
 
 }

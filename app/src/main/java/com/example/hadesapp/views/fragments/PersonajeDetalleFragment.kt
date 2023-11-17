@@ -42,7 +42,7 @@ class PersonajeDetalleFragment : Fragment() {
         return binding.root
     }
 
-    fun obtenerPersonaje(id: String, callback: (Personaje?) -> Unit) {
+    private fun obtenerPersonaje(id: String, callback: (Personaje?) -> Unit) {
         val db = Firebase.firestore
 
         val docRef = db.collection("Personajes").document(id.toString())
@@ -81,7 +81,6 @@ class PersonajeDetalleFragment : Fragment() {
             .diskCacheStrategy(DiskCacheStrategy.ALL)
             .centerCrop()
             .into(binding.imgPjPic)
-
     }
 
 

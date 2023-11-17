@@ -35,6 +35,7 @@
     <string name="str_card_phname">Nombre:</string>
     <string name="str_card_phcatnm">Dios Ctónico</string>
     <string name="str_card_phnamenm">Hades</string>
+    <string name="str_card_phnamear">Espada Estigía</string>
     <string name="str_card_phcat">Categoría:</string>
     <string name="str_add">Añadir</string>
     <string name="nombre">Nombre:</string>
@@ -52,4 +53,14 @@
     <string name="str_descripcion">Descripción:</string>
     <string name="estas_seguro">¿Estas seguro de que quieres eliminar el item?</string>
     <string name="confirmacion">Confirmación</string>
+    <string name="no_se_encuentran_resultados">No se encuentran resultados.</string>
+    <string name="str_nombre">Nombre:</string>
+    <string name="str_condicion">Condición:</string>
+    <string name="str_estilo">Estilo:</string>
+    <string name="str_aspectos">Aspectos</string>
+    <string name="aspecto_nombre">Aspecto nombre</string>
+    <string name="antiguo_portador">Antiguo Portador:</string>
+    <string name="str_mejora">Mejora:</string>
+    <string name="str_foto_in_game">Foto In Game:</string>
+    <string name="str_costo">Costo:</string>
 </resources>

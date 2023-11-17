@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/morado_lagrima"
+    tools:context=".views.fragments.ArmaDetalleFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="#61434343"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/imgBtnVolver"
+                android:layout_width="@dimen/common_back_max"
+                android:layout_height="@dimen/common_back_max"
+                android:background="@android:color/transparent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/img_volver_ic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="@dimen/common_card_pic_detail_size"
+                android:layout_height="@dimen/common_card_pic_detail_size"
+                android:scaleType="fitXY"
+                android:src="@drawable/img_block_bg"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imgArma"
+                android:layout_width="@dimen/common_card_pic_size"
+                android:layout_height="@dimen/common_card_pic_size"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+                app:layout_constraintEnd_toEndOf="@+id/imageView6"
+                app:layout_constraintStart_toStartOf="@+id/imageView6"
+                app:layout_constraintTop_toTopOf="@+id/imageView6" />
+
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/img_bar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView8">
+
+                <ImageView
+                    android:id="@+id/imgcardnu"
+                    android:layout_width="match_parent"
+                    android:layout_height="330dp"
+                    android:layout_marginStart="@dimen/common_margin_default"
+                    android:layout_marginEnd="@dimen/common_margin_default"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_pngcarta"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:id="@+id/layoutInfo"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/common_margin_default"
+                    android:layout_marginEnd="@dimen/common_margin_default"
+                    android:orientation="vertical"
+                    android:padding="@dimen/common_padding_default"
+                    app:layout_constraintBottom_toBottomOf="@+id/imgcardnu"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/imgcardnu">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/str_nombre"
+                        android:textSize="@dimen/common_text_middle" />
+
+                    <TextView
+                        android:id="@+id/txtNombreAr"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/rosario"
+                        android:textColor="@color/oro2"
+                        android:textSize="@dimen/common_text_default" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/str_condicion"
+                        android:textSize="@dimen/common_text_middle" />
+
+                    <TextView
+                        android:id="@+id/txtCondicionAr"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/oro2"
+                        android:textSize="@dimen/common_text_default" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/str_estilo"
+                        android:textSize="@dimen/common_text_middle" />
+
+                    <androidx.core.widget.NestedScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/txtEstiloAr"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/oro2"
+                            android:textSize="@dimen/common_text_default" />
+
+                    </androidx.core.widget.NestedScrollView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/str_descripcion"
+                        android:textSize="@dimen/common_text_middle" />
+
+                    <androidx.core.widget.NestedScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/txtDescipcionAr"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/oro2"
+                            android:textSize="@dimen/common_text_default" />
+
+                    </androidx.core.widget.NestedScrollView>
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/imageView9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:src="@drawable/img_bar"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layoutInfo" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Consultar Aspectos"
+                    android:textColor="@color/oro"
+                    android:textSize="@dimen/common_text_middle"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView9" />
+
+                <ImageButton
+                    android:id="@+id/imgBtnConsultar"
+                    android:layout_width="@dimen/common_height_max"
+                    android:layout_height="@dimen/common_height_max"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_consult"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

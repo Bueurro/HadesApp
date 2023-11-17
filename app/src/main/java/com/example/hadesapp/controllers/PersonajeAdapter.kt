@@ -1,22 +1,15 @@
 package com.example.hadesapp.controllers
 
 import android.content.Context
-import android.util.Log
-import android.util.LogPrinter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.hadesapp.R
 import com.example.hadesapp.models.Personaje
 import com.example.hadesapp.databinding.ItemPersonajesBinding
-import com.example.hadesapp.views.fragments.PersonajesFragment
-import com.example.hadesapp.views.fragments.PersonajesFragmentDirections
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -31,14 +24,13 @@ class PersonajeAdapter(private var personajes:MutableList<Personaje>, private va
         return ViewHolder(view)
     }
 
-
     //Rellena la vista (puede que contenga algo asi como PersonajeAdapter.ViewHolder!! borrar en caso de)
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val personaje = personajes.get(position) //obtiene el pj a manera de foreach
 
         with(holder){
             setListener(personaje, position)
-            binding.txtNombrePj.text = personaje.nombre.toString()
+            binding.txtNombrePj.text = personaje.nombre
             binding.txtCategoria.text = personaje.categoria
             Glide.with(context)
                 .load(personaje.foto)
@@ -47,7 +39,6 @@ class PersonajeAdapter(private var personajes:MutableList<Personaje>, private va
                 .into(binding.imgBtnPersonaje)
         }
     }
-
 
     //Contador del adapter
     override fun getItemCount(): Int = personajes.size
@@ -59,9 +50,10 @@ class PersonajeAdapter(private var personajes:MutableList<Personaje>, private va
         val binding = ItemPersonajesBinding.bind(view)
 
         fun setListener(personaje: Personaje, position: Int) {
-            binding.root.setOnClickListener{ listener.onClick(personaje, position) }
+            binding.root.setOnClickListener{ listener.onClickPersonaje(personaje, position) }
         }
     }
+
     fun updateData(newData: MutableList<Personaje>) {
         personajes = newData
         notifyDataSetChanged()

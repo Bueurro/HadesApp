@@ -1,15 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".views.fragments.ArmasFragment"
-    android:background="@color/naranjo_hades">
+    android:background="@color/morado_lagrima">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:background="#61434343"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
 
-</FrameLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="1in"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:background="@drawable/img_marco1080">
+
+            <ImageButton
+                android:id="@+id/imgBtnVolver"
+                android:layout_width="@dimen/common_back_max"
+                android:layout_height="@dimen/common_back_max"
+                android:background="@android:color/transparent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/img_volver_ic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/imgBtnAgregar"
+                android:layout_width="@dimen/common_back_max"
+                android:layout_height="@dimen/common_back_max"
+                android:background="@android:color/transparent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/img_agregar_round"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txtTest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/rosario"
+                android:text="Armas"
+                android:textColor="@color/white"
+                android:textSize="54sp"
+                android:layout_marginBottom="@dimen/common_margin_default"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            app:iconifiedByDefault="false"
+            app:searchHintIcon="@null"
+            app:queryHint="Search..."
+            android:focusable="false"
+            app:closeIcon="@drawable/ic_equis_ar"
+            app:searchIcon="@drawable/ic_lupa_ar"
+            android:background="@drawable/search_ar_bg"/>
+
+        <TextView
+            android:id="@+id/txtNoResults"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/no_se_encuentran_resultados"
+            android:textAlignment="center"
+            android:textSize="@dimen/common_text_middle"
+            android:visibility="gone"/>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone" />
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipeRefresherLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvArmas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/item_armas" />
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

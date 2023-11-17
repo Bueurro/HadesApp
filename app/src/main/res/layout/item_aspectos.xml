@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/common_margin_min"
+    android:layout_marginEnd="@dimen/common_margin_min"
+    android:layout_marginTop="@dimen/common_margin_min"
+    app:cardBackgroundColor="@android:color/transparent"
+    android:outlineSpotShadowColor="@android:color/transparent">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layCard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imgBtnCarta"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/common_card_height_max"
+            android:background="@android:color/transparent"
+            android:scaleType="fitXY"
+            android:src="@drawable/img_carta_bendicion_blank"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="168dp"
+            android:layout_marginBottom="106dp"
+            android:layout_marginStart="@dimen/common_margin_max3"
+            android:text="@string/str_condicion"
+            android:textColor="@color/oro"
+            android:textSize="@dimen/common_text_default"
+            android:textStyle="italic|bold"
+            app:layout_constraintBottom_toBottomOf="@+id/imgBtnCarta"
+            app:layout_constraintEnd_toEndOf="@+id/imgBtnCarta"
+            app:layout_constraintStart_toEndOf="@+id/imgAspecto"
+            app:layout_constraintTop_toTopOf="@+id/imgBtnCarta" />
+
+        <TextView
+            android:id="@+id/txtCondicionAs"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="Se desbloquea usando 1 Llave ctónica"
+            android:textColor="@color/white"
+            android:textSize="@dimen/common_text_default"
+            android:textStyle="italic"
+            android:layout_marginStart="@dimen/common_margin_max"
+            android:layout_marginEnd="@dimen/common_margin_min"
+            app:layout_constraintBottom_toTopOf="@+id/txtTextoCat"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imgAspecto"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <TextView
+            android:id="@+id/txtTextoCat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/str_card_phname"
+            android:textColor="@color/oro"
+            android:layout_marginStart="@dimen/common_margin_middle"
+
+            android:textSize="@dimen/common_text_default"
+
+            android:textStyle="italic|bold"
+            app:layout_constraintBottom_toBottomOf="@+id/imgBtnCarta"
+            app:layout_constraintHorizontal_bias="0.546"
+            app:layout_constraintStart_toEndOf="@+id/imgAspecto"
+            app:layout_constraintTop_toTopOf="@+id/imgBtnCarta"
+            app:layout_constraintVertical_bias="0.653" />
+
+        <TextView
+            android:id="@+id/txtNombreAs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/aspecto_nombre"
+            android:textColor="@color/white"
+            android:textSize="@dimen/common_text_default"
+
+            android:textStyle="italic"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/txtTextoCat"
+            app:layout_constraintHorizontal_bias="0.528"
+            app:layout_constraintStart_toEndOf="@+id/txtTextoCat"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.863" />
+
+        <ImageView
+            android:id="@+id/imgAspecto"
+            android:layout_width="@dimen/common_widht_inter"
+            android:layout_height="@dimen/common_widht_inter"
+            android:layout_marginStart="@dimen/common_margin_max2"
+            android:background="@android:color/transparent"
+            android:maxWidth="@dimen/common_widht_max"
+            android:maxHeight="@dimen/common_height_max"
+            android:scaleType="fitCenter"
+            android:src="@drawable/hadestest"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/imgBtnCarta"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

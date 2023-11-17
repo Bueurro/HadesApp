@@ -75,6 +75,7 @@ class MainActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         mediaPlayer = MediaPlayer.create(this, R.raw.hohmusica)
+        mediaPlayer?.isLooping = true
         mediaPlayer?.start()
         FxMediaPlayer = MediaPlayer.create(this, R.raw.aud_flap_wing12)
         FxMediaPlayer?.start()
@@ -95,8 +96,6 @@ class MainActivity : AppCompatActivity() {
         if(mediaPlayer != null){
             position = mediaPlayer!!.currentPosition
         }
-
-
     }
 
     //SE EJECUTA Y VERIFICA SI LA APP ESTA DAÑADA O NO

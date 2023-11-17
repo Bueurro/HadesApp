@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.fragments.ArmaAddFragment">
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:src="@drawable/img_eliseo_bg2" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/common_padding_min"
+        android:background="#92000000">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_IB_inter"
+            android:text="Armas"
+            android:textSize="@dimen/common_text_title"
+            android:textAlignment="center"
+            android:gravity="center"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:padding="@dimen/common_margin_min">
+
+            <TextView
+                android:id="@+id/txtCrdNombre"
+                android:layout_width="@dimen/common_IB_inter"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/common_text_default"
+                android:text="@string/nombre"
+                android:layout_marginEnd="@dimen/common_margin_min"/>
+
+            <EditText
+                android:id="@+id/inpCrdNombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:inputType="text"
+                android:padding="10dp"
+                android:textColorHint="@color/white" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:padding="@dimen/common_margin_min">
+
+            <TextView
+                android:id="@+id/txtCrdAP"
+                android:layout_width="@dimen/common_IB_inter"
+                android:layout_height="wrap_content"
+                android:text="@string/antiguo_portador"
+                android:layout_marginEnd="@dimen/common_margin_min"
+                android:textSize="@dimen/common_text_default"/>
+
+            <EditText
+                android:id="@+id/inpCrdAP"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:inputType="text"
+                android:padding="10dp"
+                android:textColorHint="@color/white" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:padding="@dimen/common_margin_min">
+
+            <TextView
+                android:id="@+id/txtCrdCond"
+                android:layout_width="@dimen/common_IB_inter"
+                android:layout_height="wrap_content"
+                android:text="@string/str_condicion"
+                android:layout_marginEnd="@dimen/common_margin_min"
+                android:textSize="@dimen/common_text_default"/>
+
+            <EditText
+                android:id="@+id/inpCrdCondicion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:inputType="text"
+                android:padding="10dp"
+                android:textColorHint="@color/white" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:padding="@dimen/common_margin_min">
+
+            <TextView
+                android:id="@+id/txtCrdDesc"
+                android:layout_width="@dimen/common_IB_inter"
+                android:layout_height="wrap_content"
+                android:text="@string/str_descripcion"
+                android:layout_marginEnd="@dimen/common_margin_min"
+                android:textSize="@dimen/common_text_default"/>
+
+            <EditText
+                android:id="@+id/inpCrdDescripcion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:inputType="text"
+                android:padding="10dp"
+                android:textColorHint="@color/white" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:padding="@dimen/common_margin_min">
+
+            <TextView
+                android:id="@+id/txtCrdEstilo"
+                android:layout_width="@dimen/common_IB_inter"
+                android:layout_height="wrap_content"
+                android:text="@string/str_estilo"
+                android:layout_marginEnd="@dimen/common_margin_min"
+                android:textSize="@dimen/common_text_default"/>
+
+            <EditText
+                android:id="@+id/inpCrdEstilo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:inputType="text"
+                android:padding="10dp"
+                android:textColorHint="@color/white" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:padding="@dimen/common_margin_min">
+
+            <TextView
+                android:id="@+id/txtCrdFoto"
+                android:layout_width="@dimen/common_IB_inter"
+                android:layout_height="wrap_content"
+                android:text="@string/foto"
+                android:layout_marginEnd="@dimen/common_margin_min"
+                android:textSize="@dimen/common_text_default"/>
+
+            <EditText
+                android:id="@+id/inpCrdFoto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:inputType="text"
+                android:padding="10dp"
+                android:textColorHint="@color/white" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_marginBottom="@dimen/common_margin_min"
+            android:layout_marginTop="@dimen/common_margin_min">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnLimpiar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/limpiar"
+                android:background="@drawable/btn_clear"
+                android:paddingEnd="@dimen/common_padding_default"
+                android:drawableStart="@drawable/ic_clear"
+                android:drawablePadding="@dimen/common_padding_max"
+                android:paddingStart="@dimen/common_padding_default"
+                android:layout_marginEnd="@dimen/common_margin_min"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnGuardar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/guardar"
+                android:background="@drawable/btn_save_gradient"
+                android:paddingEnd="@dimen/common_padding_default"
+                android:drawableStart="@drawable/ic_save"
+                android:drawablePadding="@dimen/common_padding_drawable3"
+                android:paddingStart="@dimen/common_padding_default"/>
+
+
+
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnCanelar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/volver"
+            android:background="@drawable/btn_cancel_gradient"
+            android:drawableStart="@drawable/ic_cancel"
+            android:drawablePadding="@dimen/common_padding_drawable2"
+            android:paddingStart="@dimen/common_padding_default"
+            />
+
+    </LinearLayout>
+
+</FrameLayout>

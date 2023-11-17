@@ -12,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.widget.SearchView
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -25,6 +26,7 @@ import com.example.hadesapp.models.Personaje
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import java.util.Locale
 import java.util.concurrent.LinkedBlockingQueue
 
 
@@ -33,27 +35,70 @@ class PersonajesFragment : Fragment(), OnClickListener {
     private lateinit var linearLayoutManager: RecyclerView.LayoutManager
     private lateinit var binding: FragmentPersonajesBinding
     private lateinit var personajeAdapter: PersonajeAdapter
+    private var mList = mutableListOf<Personaje>()
+    private lateinit var recyclerView: RecyclerView
     private var mediaPlayer : MediaPlayer? = null
+    private lateinit var searchView: SearchView
     private var mContext = this.context
     private val db = Firebase.firestore
 
-    override fun onClick(personaje: Personaje, position: Int) {
+    override fun onClickPersonaje(personaje: Personaje, position: Int) {
         findNavController().navigate(PersonajesFragmentDirections.actionPersonajesFragmentToPersonajeDetalleFragment(personaje.id))
     }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View? {
-         binding = FragmentPersonajesBinding.inflate(inflater, container, false)
+        binding = FragmentPersonajesBinding.inflate(inflater, container, false)
 
         // INICIALIZAR
-        personajeAdapter = PersonajeAdapter(mutableListOf(), this)
+        personajeAdapter = PersonajeAdapter(mList,this)
         linearLayoutManager = LinearLayoutManager(mContext)
+        searchView = binding.search
+        recyclerView = binding.rvPersonajes
 
         // RECYCLEVIEW
-        binding.rvPersonajes.apply {
-            layoutManager = linearLayoutManager
-            adapter = personajeAdapter
-        }
+        binding.rvPersonajes.layoutManager = linearLayoutManager
+        binding.rvPersonajes.adapter = personajeAdapter
+
+        searchView.setOnQueryTextListener(object  : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                filterList(newText)
+                return true
+            }
+
+        })
 
         //Swipe Helper
+        setUpSwipeHelper()
+
+        binding.imgBtnVolver.setOnClickListener{
+            findNavController().popBackStack()
+        }
+
+        binding.imgBtnAgregar.setOnClickListener {
+            findNavController().navigate(PersonajesFragmentDirections.actionPersonajesFragmentToPersonajeAddFragment(null))
+        }
+
+        // Llama a la función para obtener los personajes
+        getPersonaje { personajes ->
+            // Actualiza el adaptador con los personajes obtenidos
+            personajeAdapter.updateData(personajes)
+        }
+
+        //swipe refresher
+        swipeRefresher()
+
+        return binding.root
+    }
+
+    override fun onPause() {
+        super.onPause()
+        binding.txtNoResults.visibility = View.GONE
+    }
+
+    private fun setUpSwipeHelper() {
         val swipeHelper = ItemTouchHelper(object: ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.START or ItemTouchHelper.END) {
             override fun onMove(
                 recyclerView: RecyclerView,
@@ -67,7 +112,7 @@ class PersonajesFragment : Fragment(), OnClickListener {
                     ItemTouchHelper.START -> {
                         val dialogView = layoutInflater.inflate(R.layout.dialog_delete, null)
                         val alertDialog = MaterialAlertDialogBuilder(requireContext()).
-                            setView(dialogView)
+                        setView(dialogView)
                             .setCancelable(true)
                             .setTitle(getString(R.string.dialog_confirm))
                             .setPositiveButton(getString(R.string.dialog_confirm),DialogInterface.OnClickListener{ dialogInterface, i ->
@@ -124,23 +169,9 @@ class PersonajesFragment : Fragment(), OnClickListener {
 
         })
         swipeHelper.attachToRecyclerView(binding.rvPersonajes)
+    }
 
-
-        binding.imgBtnVolver.setOnClickListener{
-            findNavController().popBackStack()
-        }
-
-        binding.imgBtnAgregar.setOnClickListener {
-            findNavController().navigate(PersonajesFragmentDirections.actionPersonajesFragmentToPersonajeAddFragment(null))
-        }
-
-        // Llama a la función para obtener los personajes
-        getPersonaje { personajes ->
-            // Actualiza el adaptador con los personajes obtenidos
-            personajeAdapter.updateData(personajes)
-        }
-
-        //swipe refresher
+    private fun swipeRefresher() {
         val swipe : SwipeRefreshLayout = binding.swipeRefresherLayout
         swipe.setOnRefreshListener {
             //obtiene la lista denuevo
@@ -153,8 +184,6 @@ class PersonajesFragment : Fragment(), OnClickListener {
             //detiene el refresh
             swipe.isRefreshing = false
         }
-
-        return binding.root
     }
 
     private fun drawBackground(c: Canvas, itemView: View, color: Int) {
@@ -164,10 +193,10 @@ class PersonajesFragment : Fragment(), OnClickListener {
     }
 
     private fun getPersonaje(callback: (MutableList<Personaje>) -> Unit) {
+        mList.clear()
         val progressBar = binding.progressBar
         progressBar.visibility = View.VISIBLE
         val db = Firebase.firestore
-        val listaPersonajes = mutableListOf<Personaje>()
         val queue = LinkedBlockingQueue<MutableList<Personaje>>()
         Thread {
             db.collection("Personajes").get().addOnCompleteListener { task ->
@@ -183,9 +212,9 @@ class PersonajesFragment : Fragment(), OnClickListener {
                         val descripcion = document.getString("Descripcion") ?: ""
 
                         val personaje = Personaje(id, nombre, categoria, titulo, regaloBendicion, foto, descripcion)
-                        listaPersonajes.add(personaje)
+                        mList.add(personaje)
                     }
-                    queue.add(listaPersonajes)
+                    queue.add(mList)
                     callback(queue.take())
                 } else {
                     // Manejar el error de la consulta a Firestore aquí
@@ -195,4 +224,21 @@ class PersonajesFragment : Fragment(), OnClickListener {
         }.start()
     }
 
+    private fun filterList(query: String?) {
+        if (query!=null){
+            val filteredList = mutableListOf<Personaje>()
+            mList.forEach {
+                if (it.nombre.lowercase(Locale.getDefault()).contains(query)){
+                    filteredList.add(it)
+                }
+            }
+            if (filteredList.isEmpty()){
+                binding.txtNoResults.visibility = View.VISIBLE
+                personajeAdapter.updateData(filteredList)
+            } else {
+                binding.txtNoResults.visibility = View.GONE
+                personajeAdapter.updateData(filteredList)
+            }
+        }
+    }
 }
