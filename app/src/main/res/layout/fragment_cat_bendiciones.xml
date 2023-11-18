@@ -2,9 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".views.fragments.catbendiciones.bendiciones.BendicionesFragment"
+    tools:context=".views.fragments.arma.ArmasFragment"
     android:background="@color/oro">
 
     <LinearLayout
@@ -51,10 +51,9 @@
                 android:layout_height="0dp"
                 android:fontFamily="@font/rosario"
                 android:gravity="center"
-                android:text="@string/str_ph"
+                android:text="@string/str_categor_a_bendiciones"
                 android:textColor="@color/white"
-                android:textSize="32sp"
-                android:layout_margin="@dimen/common_text_max"
+                android:textSize="48sp"
                 android:layout_marginBottom="@dimen/common_margin_default"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -62,6 +61,19 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            app:iconifiedByDefault="false"
+            app:searchHintIcon="@null"
+            app:queryHint="Search..."
+            android:focusable="false"
+            app:closeIcon="@drawable/ic_equis_cat"
+            app:searchIcon="@drawable/ic_lupa_cat"
+            android:background="@drawable/search_cat_bg"/>
 
         <TextView
             android:id="@+id/txtNoResults"
@@ -79,11 +91,19 @@
             android:layout_centerInParent="true"
             android:visibility="gone" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvBendiciones"
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipeRefresherLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:listitem="@layout/item_bendicion" />
+            android:layout_height="match_parent"
+            >
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvCatBend"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/item_cat_bendicion" />
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     </LinearLayout>
 

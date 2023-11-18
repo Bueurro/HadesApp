@@ -1,4 +1,4 @@
-package com.example.hadesapp.views.fragments
+package com.example.hadesapp.views.fragments.personaje
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,9 +10,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.example.hadesapp.R
 import com.example.hadesapp.databinding.FragmentPersonajeDetalleBinding
-import com.example.hadesapp.databinding.FragmentPersonajesBinding
 import com.example.hadesapp.models.Personaje
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase

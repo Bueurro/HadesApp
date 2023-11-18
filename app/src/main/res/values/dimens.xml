@@ -5,7 +5,7 @@
     <dimen name="common_margin_default">16dp</dimen>
     <dimen name="common_margin_middle">24dp</dimen>
     <dimen name="common_margin_max">32dp</dimen>
-    <dimen name="common_margin_max2">38dp</dimen>
+    <dimen name="common_margin_max2">36dp</dimen>
     <dimen name="common_margin_max3">52dp</dimen>
 
     <dimen name="common_negative_margin_min">-8dp</dimen>
@@ -50,6 +50,8 @@
     <dimen name="common_height_min">32dp</dimen>
     <dimen name="common_height_default">48dp</dimen>
     <dimen name="common_height_middle">64dp</dimen>
+    <dimen name="common_height_inter">90dp</dimen>
+    <dimen name="common_height_inter2">160dp</dimen>
     <dimen name="common_height_max">128dp</dimen>
     <dimen name="common_card_height_max">152dp</dimen>
     <dimen name="common_back_max">64dp</dimen>

@@ -98,6 +98,8 @@
 
         <ImageView
             android:id="@+id/imgAspecto"
+            android:minHeight="@dimen/common_widht_inter"
+            android:minWidth="@dimen/common_widht_inter"
             android:layout_width="@dimen/common_widht_inter"
             android:layout_height="@dimen/common_widht_inter"
             android:layout_marginStart="@dimen/common_margin_max2"

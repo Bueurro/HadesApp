@@ -1,14 +1,201 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.fragments.AspectoDetalleFragment">
+    android:background="@color/morado_lagrima"
+    tools:context=".views.fragments.arma.aspecto.AspectoDetalleFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+        android:id="@+id/maximumPadreNuestro"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_gravity="center"
+        android:background="#61434343"
+        android:orientation="vertical">
 
-</FrameLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/imgBtnVolver"
+                android:layout_width="@dimen/common_back_max"
+                android:layout_height="@dimen/common_back_max"
+                android:layout_margin="@dimen/common_margin_min"
+                android:background="@android:color/transparent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/img_volver_ic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="@dimen/common_card_pic_detail_size"
+                android:layout_height="@dimen/common_card_pic_detail_size"
+                android:scaleType="fitXY"
+                android:layout_marginTop="@dimen/common_margin_default"
+                android:src="@drawable/img_block_bg"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imgAspecto"
+                android:layout_width="@dimen/common_card_pic_size"
+                android:layout_height="@dimen/common_card_pic_size"
+                android:layout_marginTop="@dimen/common_margin_default"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+                app:layout_constraintEnd_toEndOf="@+id/imageView6"
+                app:layout_constraintStart_toStartOf="@+id/imageView6"
+                app:layout_constraintTop_toTopOf="@+id/imageView6" />
+
+            <ImageView
+                android:id="@+id/imgBartop"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/img_bar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imgBartop">
+
+                <ImageView
+                    android:id="@+id/imgcardnu"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/common_margin_default"
+                    android:layout_marginEnd="@dimen/common_margin_default"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_pngcarta"
+                    app:layout_constraintBottom_toTopOf="@+id/imageView9"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:id="@+id/layoutInfo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/common_margin_default"
+                    android:layout_marginEnd="@dimen/common_margin_default"
+                    android:orientation="vertical"
+                    android:padding="@dimen/common_padding_default"
+                    app:layout_constraintBottom_toTopOf="@+id/imageView9"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/imgcardnu">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/str_nombre"
+                        android:textSize="@dimen/common_text_middle" />
+
+                    <TextView
+                        android:id="@+id/txtNombreAs"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/rosario"
+                        android:textColor="@color/oro2"
+                        android:textSize="@dimen/common_text_default" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/str_costo"
+                        android:textSize="@dimen/common_text_middle" />
+
+                    <TextView
+                        android:id="@+id/txtCosteAs"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/oro2"
+                        android:textSize="@dimen/common_text_default" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/str_mejora"
+                        android:textSize="@dimen/common_text_middle" />
+
+                    <androidx.core.widget.NestedScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp">
+
+                        <TextView
+                            android:id="@+id/txtMejoraAs"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/oro2"
+                            android:textSize="@dimen/common_text_default" />
+
+                    </androidx.core.widget.NestedScrollView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/str_descripcion"
+                        android:textSize="@dimen/common_text_middle" />
+
+                    <androidx.core.widget.NestedScrollView
+                        android:id="@+id/nestedDesc"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/txtDescipcionAs"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/oro2"
+                            android:textSize="@dimen/common_text_default" />
+
+                    </androidx.core.widget.NestedScrollView>
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Foto Ingame"
+                        android:textAlignment="center"
+                        android:textColor="@color/plata"
+                        android:textSize="@dimen/common_text_middle"
+                        app:layout_constraintTop_toBottomOf="@+id/nestedDesc" />
+
+                    <ImageView
+                        android:id="@+id/imgFotoInGame"
+                        android:layout_width="@dimen/common_height_inter2"
+                        android:layout_height="@dimen/common_height_inter2"
+                        android:layout_gravity="center"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitCenter" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/imageView9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:src="@drawable/img_bar"
+                    app:layout_constraintBottom_toBottomOf="@+id/maximumPadreNuestro"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layoutInfo" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

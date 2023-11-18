@@ -1,4 +1,4 @@
-package com.example.hadesapp.views.fragments
+package com.example.hadesapp.views.fragments.personaje
 
 import android.content.DialogInterface
 import android.graphics.Canvas
@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.SearchView
 import androidx.navigation.fragment.findNavController

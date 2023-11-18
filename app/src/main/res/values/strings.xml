@@ -63,4 +63,9 @@
     <string name="str_mejora">Mejora:</string>
     <string name="str_foto_in_game">Foto In Game:</string>
     <string name="str_costo">Costo:</string>
+    <string name="str_efecto_default">Efecto default</string>
+    <string name="str_efecto">Efecto:</string>
+    <string name="str_categor_a_bendiciones">Categoría Bendiciones</string>
+    <string name="str_ph">ph</string>
+    <string name="str_bendiciones">Bendiciones</string>
 </resources>

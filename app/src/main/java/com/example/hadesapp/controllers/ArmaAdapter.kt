@@ -55,7 +55,7 @@ class ArmaAdapter(private var armas:MutableList<Arma>, private var listener: OnC
     fun remove(adapterPosition: Int) {
         val removedArma = armas[adapterPosition]
 
-        Firebase.firestore.collection("Personajes")
+        Firebase.firestore.collection("Armas")
             .document(removedArma.id)
             .delete()
             .addOnSuccessListener {

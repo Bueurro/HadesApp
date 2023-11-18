@@ -10,11 +10,8 @@
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
-            android:id="@+id/action_mainFragment_to_armasFragment2"
+            android:id="@+id/action_mainFragment_to_armasFragment"
             app:destination="@id/armasFragment" />
-        <action
-            android:id="@+id/action_mainFragment_to_bendicionesFragment"
-            app:destination="@id/bendicionesFragment" />
         <action
             android:id="@+id/action_mainFragment_to_personajesFragment"
             app:destination="@id/personajesFragment"
@@ -23,10 +20,13 @@
             app:popUpTo="@id/mainFragment"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_mainFragment_to_catBendicionesFragment"
+            app:destination="@id/catBendicionesFragment" />
     </fragment>
     <fragment
         android:id="@+id/armasFragment"
-        android:name="com.example.hadesapp.views.fragments.ArmasFragment"
+        android:name="com.example.hadesapp.views.fragments.arma.ArmasFragment"
         android:label="fragment_armas"
         tools:layout="@layout/fragment_armas" >
         <action
@@ -37,13 +37,8 @@
             app:destination="@id/armaAddFragment" />
     </fragment>
     <fragment
-        android:id="@+id/bendicionesFragment"
-        android:name="com.example.hadesapp.views.fragments.BendicionesFragment"
-        android:label="fragment_bendiciones"
-        tools:layout="@layout/fragment_bendiciones" />
-    <fragment
         android:id="@+id/personajesFragment"
-        android:name="com.example.hadesapp.views.fragments.PersonajesFragment"
+        android:name="com.example.hadesapp.views.fragments.personaje.PersonajesFragment"
         android:label="fragment_personajes"
         tools:layout="@layout/fragment_personajes" >
         <action
@@ -68,7 +63,7 @@
         android:label="SettingsFragment" />
     <fragment
         android:id="@+id/personajeAddFragment"
-        android:name="com.example.hadesapp.views.fragments.PersonajeAddFragment"
+        android:name="com.example.hadesapp.views.fragments.personaje.PersonajeAddFragment"
         android:label="fragment_personaje_add"
         tools:layout="@layout/fragment_personaje_add" >
         <argument
@@ -78,7 +73,7 @@
     </fragment>
     <fragment
         android:id="@+id/personajeDetalleFragment"
-        android:name="com.example.hadesapp.views.fragments.PersonajeDetalleFragment"
+        android:name="com.example.hadesapp.views.fragments.personaje.PersonajeDetalleFragment"
         android:label="fragment_personaje_detalle"
         tools:layout="@layout/fragment_personaje_detalle" >
         <argument
@@ -89,7 +84,7 @@
     </fragment>
     <fragment
         android:id="@+id/armaAddFragment"
-        android:name="com.example.hadesapp.views.fragments.ArmaAddFragment"
+        android:name="com.example.hadesapp.views.fragments.arma.ArmaAddFragment"
         android:label="fragment_arma_add"
         tools:layout="@layout/fragment_arma_add" >
         <argument
@@ -99,7 +94,7 @@
     </fragment>
     <fragment
         android:id="@+id/armaDetalleFragment"
-        android:name="com.example.hadesapp.views.fragments.ArmaDetalleFragment"
+        android:name="com.example.hadesapp.views.fragments.arma.ArmaDetalleFragment"
         android:label="fragment_arma_detalle"
         tools:layout="@layout/fragment_arma_detalle" >
         <argument
@@ -112,7 +107,7 @@
     </fragment>
     <fragment
         android:id="@+id/aspectoFragment"
-        android:name="com.example.hadesapp.views.fragments.AspectoFragment"
+        android:name="com.example.hadesapp.views.fragments.arma.aspecto.AspectoFragment"
         android:label="fragment_aspecto"
         tools:layout="@layout/fragment_aspecto" >
         <action
@@ -127,14 +122,64 @@
     </fragment>
     <fragment
         android:id="@+id/aspectoDetalleFragment"
-        android:name="com.example.hadesapp.views.fragments.AspectoDetalleFragment"
+        android:name="com.example.hadesapp.views.fragments.arma.aspecto.AspectoDetalleFragment"
         android:label="fragment_aspecto_detalle"
         tools:layout="@layout/fragment_aspecto_detalle" >
-        <argument android:name="idAr" />
+        <argument android:name="idAr"
+            app:argType="string" />
+        <argument
+            android:name="nomAs"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/aspectoAddFragment"
-        android:name="com.example.hadesapp.views.fragments.AspectoAddFragment"
+        android:name="com.example.hadesapp.views.fragments.arma.aspecto.AspectoAddFragment"
         android:label="fragment_aspecto_add"
-        tools:layout="@layout/fragment_aspecto_add" />
+        tools:layout="@layout/fragment_aspecto_add" >
+        <argument
+            android:name="idAr"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/catBendicionesFragment"
+        android:name="com.example.hadesapp.views.fragments.catbendiciones.CatBendicionesFragment"
+        android:label="CatBendicionesFragment" >
+        <action
+            android:id="@+id/action_catBendicionesFragment_to_catBendicionesAddFragment2"
+            app:destination="@id/catBendicionesAddFragment2" />
+        <action
+            android:id="@+id/action_catBendicionesFragment_to_bendicionesFragment"
+            app:destination="@id/bendicionesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/catBendicionesAddFragment2"
+        android:name="com.example.hadesapp.views.fragments.catbendiciones.CatBendicionesAddFragment"
+        android:label="fragment_cat_bendiciones_add"
+        tools:layout="@layout/fragment_cat_bendiciones_add" >
+        <argument
+            android:name="idCatBen"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/bendicionesFragment"
+        android:name="com.example.hadesapp.views.fragments.catbendiciones.bendiciones.BendicionesFragment"
+        android:label="fragment_bendiciones"
+        tools:layout="@layout/fragment_bendiciones" >
+        <action
+            android:id="@+id/action_bendicionesFragment_to_bendicionesAddFragment"
+            app:destination="@id/bendicionesAddFragment" />
+        <argument
+            android:name="idCatBen"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/bendicionesAddFragment"
+        android:name="com.example.hadesapp.views.fragments.catbendiciones.bendiciones.BendicionesAddFragment"
+        android:label="fragment_bendiciones_add"
+        tools:layout="@layout/fragment_bendiciones_add" >
+        <argument
+            android:name="idCatBen"
+            app:argType="string" />
+    </fragment>
 </navigation>

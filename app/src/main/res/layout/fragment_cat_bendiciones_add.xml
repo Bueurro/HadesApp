@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.fragments.personaje.PersonajeAddFragment">
+    tools:context=".views.fragments.catbendiciones.CatBendicionesAddFragment">
 
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:scaleType="centerCrop"
-        android:src="@drawable/bbackground_hd" />
+        android:src="@drawable/img_eliseo_bg2" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,10 +20,13 @@
         android:padding="@dimen/common_padding_min"
         android:background="#92000000">
 
-        <ImageView
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="@dimen/common_IB_inter"
-            android:src="@drawable/img_personajes_title"/>
+            android:text="@string/str_categor_a_bendiciones"
+            android:textSize="@dimen/common_text_title"
+            android:textAlignment="center"
+            android:gravity="center"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -59,93 +62,15 @@
             android:padding="@dimen/common_margin_min">
 
             <TextView
-                android:id="@+id/txtCrdCategoria"
+                android:id="@+id/txtCrdEfecto"
                 android:layout_width="@dimen/common_IB_inter"
                 android:layout_height="wrap_content"
-                android:text="@string/categoria"
+                android:text="@string/str_efecto"
                 android:layout_marginEnd="@dimen/common_margin_min"
                 android:textSize="@dimen/common_text_default"/>
 
             <EditText
-                android:id="@+id/inpCrdCategoria"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:inputType="text"
-                android:padding="10dp"
-                android:textColorHint="@color/white" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:padding="@dimen/common_margin_min">
-
-            <TextView
-                android:id="@+id/txtCrdTitulo"
-                android:layout_width="@dimen/common_IB_inter"
-                android:layout_height="wrap_content"
-                android:text="@string/titulo"
-                android:layout_marginEnd="@dimen/common_margin_min"
-                android:textSize="@dimen/common_text_default"/>
-
-            <EditText
-                android:id="@+id/inpCrdTitulo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:inputType="text"
-                android:padding="10dp"
-                android:textColorHint="@color/white" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:padding="@dimen/common_margin_min">
-
-            <TextView
-                android:id="@+id/txtCrdRegalo"
-                android:layout_width="@dimen/common_IB_inter"
-                android:layout_height="wrap_content"
-                android:text="@string/regalo"
-                android:layout_marginEnd="@dimen/common_margin_min"
-                android:textSize="@dimen/common_text_default"/>
-
-            <EditText
-                android:id="@+id/inpCrdRegalo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:inputType="text"
-                android:padding="10dp"
-                android:textColorHint="@color/white" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:padding="@dimen/common_margin_min">
-
-            <TextView
-                android:id="@+id/txtCrdDescripcion"
-                android:layout_width="@dimen/common_IB_inter"
-                android:layout_height="wrap_content"
-                android:text="@string/descripcion"
-                android:layout_marginEnd="@dimen/common_margin_min"
-                android:textSize="@dimen/common_text_default"/>
-
-            <EditText
-                android:id="@+id/inpCrdDescripcion"
+                android:id="@+id/inpCrdEfecto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"

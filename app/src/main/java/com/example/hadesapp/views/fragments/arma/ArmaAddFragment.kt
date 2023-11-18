@@ -1,4 +1,4 @@
-package com.example.hadesapp.views.fragments
+package com.example.hadesapp.views.fragments.arma
 
 import android.content.ContentValues
 import android.content.Context
@@ -13,11 +13,8 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.example.hadesapp.R
 import com.example.hadesapp.databinding.FragmentArmaAddBinding
 import com.example.hadesapp.models.Arma
-import com.example.hadesapp.models.Aspecto
-import com.example.hadesapp.models.Personaje
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 

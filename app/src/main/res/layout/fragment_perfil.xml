@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".views.fragments.PerfilFragment"
-    android:background="@drawable/img_eliseo_bg2">
+    android:background="@drawable/img_bg_piedra">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout

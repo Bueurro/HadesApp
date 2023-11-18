@@ -18,17 +18,16 @@ class MainFragment : Fragment() {
         binding = FragmentMainBinding.inflate(inflater, container, false)
 
         binding.btnPersonajes.setOnClickListener {
-            findNavController().navigate(R.id.action_mainFragment_to_personajesFragment)
+            findNavController().navigate(MainFragmentDirections.actionMainFragmentToPersonajesFragment())
         }
 
         binding.btnBendiciones.setOnClickListener {
-            findNavController().navigate(R.id.action_mainFragment_to_bendicionesFragment)
+            findNavController().navigate(MainFragmentDirections.actionMainFragmentToCatBendicionesFragment())
         }
 
         binding.btnArmas.setOnClickListener {
-            findNavController().navigate(R.id.action_mainFragment_to_armasFragment2)
+            findNavController().navigate(MainFragmentDirections.actionMainFragmentToArmasFragment())
         }
-
 
         return binding.root
     }

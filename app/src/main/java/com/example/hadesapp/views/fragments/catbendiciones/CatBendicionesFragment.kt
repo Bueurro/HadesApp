@@ -1,4 +1,4 @@
-package com.example.hadesapp.views.fragments
+package com.example.hadesapp.views.fragments.catbendiciones
 
 import android.content.DialogInterface
 import android.graphics.Canvas
@@ -9,58 +9,57 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.SearchView
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.hadesapp.R
-import com.example.hadesapp.controllers.ArmaAdapter
+import com.example.hadesapp.controllers.CategoriaBendicionAdapter
 import com.example.hadesapp.controllers.OnClickListener
-import com.example.hadesapp.databinding.FragmentArmasBinding
-import com.example.hadesapp.models.Arma
-import com.example.hadesapp.models.Aspecto
+import com.example.hadesapp.databinding.FragmentCatBendicionesBinding
+import com.example.hadesapp.models.Bendicion
+import com.example.hadesapp.models.CategoriaBendicion
+import com.example.hadesapp.views.fragments.arma.ArmasFragmentDirections
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import java.util.Locale
 import java.util.concurrent.LinkedBlockingQueue
 
-class ArmasFragment : Fragment(), OnClickListener {
-    private lateinit var binding: FragmentArmasBinding
-    private lateinit var armasAdapter: ArmaAdapter
-    private var mList = mutableListOf<Arma>()
+class CatBendicionesFragment : Fragment(), OnClickListener {
+    private lateinit var binding: FragmentCatBendicionesBinding
+    private lateinit var categoriaBendicionAdapter: CategoriaBendicionAdapter
+    private var mList = mutableListOf<CategoriaBendicion>()
     private lateinit var recyclerView: RecyclerView
     private lateinit var linearLayoutManager: RecyclerView.LayoutManager
     private var mContext = this.context
     private val db = Firebase.firestore
     private lateinit var searchView: SearchView
 
-    override fun onClickArma(arma: Arma, position: Int) {
-        findNavController().navigate(ArmasFragmentDirections.actionArmasFragmentToArmaDetalleFragment(arma.id))
+    override fun onClickCategoria(categoria: CategoriaBendicion, position: Int) {
+        findNavController().navigate(CatBendicionesFragmentDirections.actionCatBendicionesFragmentToBendicionesFragment(categoria.id))
     }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentArmasBinding.inflate(inflater, container, false)
+    ): View {
+        binding = FragmentCatBendicionesBinding.inflate(inflater, container, false)
 
         // INICIALIZAR
-        armasAdapter = ArmaAdapter(mList, this)
-        linearLayoutManager = GridLayoutManager(mContext, 2)
+        categoriaBendicionAdapter = CategoriaBendicionAdapter(mList, this)
+        linearLayoutManager = LinearLayoutManager(requireContext())
         searchView = binding.search
-        recyclerView = binding.rvArmas
+        recyclerView = binding.rvCatBend
 
         // RECYCLEVIEW
-        binding.rvArmas.layoutManager = linearLayoutManager
-        binding.rvArmas.adapter = armasAdapter
+        binding.rvCatBend.layoutManager = linearLayoutManager
+        binding.rvCatBend.adapter = categoriaBendicionAdapter
 
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
@@ -83,16 +82,16 @@ class ArmasFragment : Fragment(), OnClickListener {
 
         binding.imgBtnAgregar.setOnClickListener {
             findNavController().navigate(
-                ArmasFragmentDirections.actionArmasFragmentToArmaAddFragment(
+                CatBendicionesFragmentDirections.actionCatBendicionesFragmentToCatBendicionesAddFragment2(
                     null
                 )
             )
         }
 
         // Llama a la función para obtener los personajes
-        getArmas { armas ->
+        getCategorias { categorias ->
             // Actualiza el adaptador con los personajes obtenidos
-            armasAdapter.updateData(armas)
+            categoriaBendicionAdapter.updateData(categorias)
         }
 
         //swipe refresher
@@ -101,8 +100,14 @@ class ArmasFragment : Fragment(), OnClickListener {
         return binding.root
     }
 
+
     override fun onPause() {
         super.onPause()
+        binding.txtNoResults.visibility = View.GONE
+    }
+
+    override fun onResume() {
+        super.onResume()
         binding.txtNoResults.visibility = View.GONE
     }
 
@@ -128,12 +133,12 @@ class ArmasFragment : Fragment(), OnClickListener {
                                 .setTitle(getString(R.string.dialog_confirm))
                                 .setPositiveButton(getString(R.string.dialog_confirm),
                                     DialogInterface.OnClickListener { dialogInterface, i ->
-                                        armasAdapter.remove(viewHolder.adapterPosition)
+                                        categoriaBendicionAdapter.remove(viewHolder.adapterPosition)
                                     })
                                 .setNegativeButton(
                                     getString(R.string.dialog_cancel),
                                     DialogInterface.OnClickListener { dialogInterface, i ->
-                                        armasAdapter.notifyDataSetChanged()
+                                        categoriaBendicionAdapter.notifyDataSetChanged()
                                     })
                                 .show()
                         val positiveButton = alertDialog.getButton(AlertDialog.BUTTON_POSITIVE)
@@ -143,10 +148,10 @@ class ArmasFragment : Fragment(), OnClickListener {
                     }
 
                     ItemTouchHelper.END -> {
-                        val idAr = armasAdapter.edit(viewHolder.adapterPosition)
+                        val idCatben = categoriaBendicionAdapter.edit(viewHolder.adapterPosition)
                         findNavController().navigate(
-                            ArmasFragmentDirections.actionArmasFragmentToArmaAddFragment(
-                                idAr
+                            CatBendicionesFragmentDirections.actionCatBendicionesFragmentToCatBendicionesAddFragment2(
+                                idCatben
                             )
                         )
                     }
@@ -242,87 +247,67 @@ class ArmasFragment : Fragment(), OnClickListener {
                 viewHolder: RecyclerView.ViewHolder
             ) {
                 super.clearView(recyclerView, viewHolder)
-                drawBackground(viewHolder.itemView, Color.rgb(96, 41, 128))
+                drawBackground(viewHolder.itemView, Color.rgb(214,162,31))
             }
 
 
         })
-        swipeHelper.attachToRecyclerView(binding.rvArmas)
+        swipeHelper.attachToRecyclerView(binding.rvCatBend)
     }
 
     private fun swipeRefresher() {
         val swipe: SwipeRefreshLayout = binding.swipeRefresherLayout
         swipe.setOnRefreshListener {
-            //obtiene la lista denuevo
-            getArmas { armas ->
-                // Actualiza el adaptador con los personajes obtenidos
-                armasAdapter.updateData(armas)
+            getCategorias { categorias ->
+                categoriaBendicionAdapter.updateData(categorias)
             }
-            //notifica el cambio
-            armasAdapter.notifyDataSetChanged()
-            //detiene el refresh
+            categoriaBendicionAdapter.notifyDataSetChanged()
             swipe.isRefreshing = false
         }
     }
 
-    private fun getArmas(callback: (MutableList<Arma>) -> Unit) {
+    private fun getCategorias(callback: (MutableList<CategoriaBendicion>) -> Unit) {
         mList.clear()
         val progressBar = binding.progressBar
         progressBar.visibility = View.VISIBLE
         val db = Firebase.firestore
-        val queue = LinkedBlockingQueue<MutableList<Arma>>()
+        val queue = LinkedBlockingQueue<MutableList<CategoriaBendicion>>()
         Thread {
-            db.collection("Armas").get().addOnCompleteListener { task ->
+            db.collection("CatBendiciones").get().addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     progressBar.visibility = View.GONE
                     for (document in task.result!!) {
                         val id = document.id
-                        val nombre = document.getString("nombre") ?: ""
+                        val nombreCat = document.getString("nombreCat") ?: ""
                         val foto = document.getString("foto") ?: ""
-                        val descripcion = document.getString("descripcion") ?: ""
-                        val condicion = document.getString("condicion") ?: ""
-                        val estilo = document.getString("estilo") ?: ""
-                        val antiguoPortador = document.getString("antiguoPortador") ?: ""
+                        val efecto = document.getString("efecto") ?: ""
 
-                        val aspectosMap =
-                            document.get("aspectos") as? Map<String, *> ?: emptyMap<String, Any>()
+                        val bendicionesMap =
+                            document.get("bendiciones") as? Map<String, *> ?: emptyMap<String, Any>()
 
-                        // Convertir el mapa a un mapa de aspectos esperado
-                        val aspectos = aspectosMap.mapValues { (nombre, detalles) ->
+                        val bendiciones = bendicionesMap.mapValues { (nombreCat, detalles) ->
                             if (detalles is Map<*, *>) {
-                                Aspecto(
-                                    nombre,
-                                    detalles["coste"] as? String ?: "",
-                                    detalles["descripcion"] as? String ?: "",
-                                    detalles["foto"] as? String ?: "",
-                                    detalles["fotoInGame"] as? String ?: "",
-                                    detalles["mejora"] as? String ?: ""
+                                Bendicion(
+                                    nombreCat,
+                                    detalles["efectoDesc"] as? String ?: "",
+                                    detalles["foto"] as? String ?: ""
                                 )
+
                             } else {
-                                // Manejar el caso donde los detalles no son un mapa
                                 null
                             }
-                        }.filterValues { it != null } as Map<String, Aspecto>
-
-                        // Crear la instancia de Arma
-
-                        val arma = Arma(
+                        }.filterValues { it != null } as Map<String, Bendicion>
+                        val categoria = CategoriaBendicion(
                             id,
-                            nombre,
+                            nombreCat,
                             foto,
-                            descripcion,
-                            condicion,
-                            estilo,
-                            antiguoPortador,
-                            aspectos
-                        )
-                        mList.add(arma)
+                            efecto,
+                            bendiciones)
+                        mList.add(categoria)
                     }
-
                     queue.add(mList)
                     callback(queue.take())
                 } else {
-                    // Manejar el error de la consulta a Firestore aquí
                     callback(mutableListOf())
                 }
             }
@@ -337,18 +322,18 @@ class ArmasFragment : Fragment(), OnClickListener {
 
     private fun filterList(query: String?) {
         if (query != null) {
-            val filteredList = mutableListOf<Arma>()
+            val filteredList = mutableListOf<CategoriaBendicion>()
             mList.forEach {
-                if (it.nombre.lowercase(Locale.getDefault()).contains(query)) {
+                if (it.nombreCat.lowercase(Locale.getDefault()).contains(query)) {
                     filteredList.add(it)
                 }
             }
             if (filteredList.isEmpty()) {
                 binding.txtNoResults.visibility = View.VISIBLE
-                armasAdapter.updateData(filteredList)
+                categoriaBendicionAdapter.updateData(filteredList)
             } else {
                 binding.txtNoResults.visibility = View.GONE
-                armasAdapter.updateData(filteredList)
+                categoriaBendicionAdapter.updateData(filteredList)
             }
         }
     }

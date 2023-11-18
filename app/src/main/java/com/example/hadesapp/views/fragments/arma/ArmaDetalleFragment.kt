@@ -1,4 +1,4 @@
-package com.example.hadesapp.views.fragments
+package com.example.hadesapp.views.fragments.arma
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,16 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.appcompat.widget.SearchView
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.example.hadesapp.R
-import com.example.hadesapp.controllers.ArmaAdapter
 import com.example.hadesapp.controllers.AspectoAdapter
 import com.example.hadesapp.controllers.OnClickListener
 import com.example.hadesapp.databinding.FragmentArmaDetalleBinding
@@ -23,7 +18,6 @@ import com.example.hadesapp.models.Arma
 import com.example.hadesapp.models.Aspecto
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import java.util.concurrent.LinkedBlockingQueue
 
 class ArmaDetalleFragment : Fragment(), OnClickListener {
     private lateinit var linearLayoutManager: RecyclerView.LayoutManager

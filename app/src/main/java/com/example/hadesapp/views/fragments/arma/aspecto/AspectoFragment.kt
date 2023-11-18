@@ -1,4 +1,4 @@
-package com.example.hadesapp.views.fragments
+package com.example.hadesapp.views.fragments.arma.aspecto
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,7 +10,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.hadesapp.R
 import com.example.hadesapp.controllers.AspectoAdapter
 import com.example.hadesapp.controllers.OnClickListener
 import com.example.hadesapp.databinding.FragmentAspectoBinding
@@ -29,7 +28,7 @@ class AspectoFragment : Fragment(), OnClickListener{
     private var mContext = this.context
 
     override fun onClickAspecto(aspecto: Aspecto, position: Int) {
-        findNavController().navigate(AspectoFragmentDirections.actionAspectoFragmentToAspectoDetalleFragment(args.idAr))
+        findNavController().navigate(AspectoFragmentDirections.actionAspectoFragmentToAspectoDetalleFragment(args.idAr,aspecto.nombre))
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -45,7 +44,7 @@ class AspectoFragment : Fragment(), OnClickListener{
         binding.rvAspectos.adapter = aspectoAdapter
 
         binding.imgBtnAgregar.setOnClickListener {
-            findNavController().navigate(AspectoFragmentDirections.actionAspectoFragmentToAspectoAddFragment())
+            findNavController().navigate(AspectoFragmentDirections.actionAspectoFragmentToAspectoAddFragment(args.idAr))
         }
 
         getArmaById(args.idAr) { arma ->
@@ -86,7 +85,6 @@ class AspectoFragment : Fragment(), OnClickListener{
                     val aspectosMap =
                         document.get("aspectos") as? Map<String, *> ?: emptyMap<String, Any>()
 
-                    // Convertir el mapa a un mapa de aspectos esperado
                     val aspectos = aspectosMap.mapValues { (nombre, detalles) ->
                         if (detalles is Map<*, *>) {
                             Aspecto(
@@ -99,13 +97,11 @@ class AspectoFragment : Fragment(), OnClickListener{
                             )
 
                         } else {
-                            // Manejar el caso donde los detalles no son un mapa
                             null
                         }
                     }.filterValues { it != null } as Map<String, Aspecto>
                     mList = aspectos
 
-                    // Crear la instancia de Arma
                     val arma = Arma(
                         id,
                         nombre,
@@ -119,11 +115,9 @@ class AspectoFragment : Fragment(), OnClickListener{
 
                     callback(arma)
                 } else {
-                    // Manejar el caso donde el documento no existe
                     callback(null)
                 }
             } else {
-                // Manejar el error de la consulta a Firestore aquí
                 callback(null)
             }
         }
